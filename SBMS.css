@@ -1,0 +1,135 @@
+meter {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 180px;
+    height: 12px;
+    position: absolute;
+    left: 10px;
+    box-shadow: 1px 2px 3px #ec6;
+}
+
+.bar {
+    position: absolute;
+    bottom: 0px;
+    display: inline-block;
+}
+
+mx1 {
+    border: 1px solid #fff;
+    color: #fff;
+    padding: 0px 3px
+}
+
+mn1 {
+    border: 1px solid #fe9;
+    color: #fe9;
+    padding: 0px 3px
+}
+
+Val {
+    color: #fed;
+}
+
+txt {
+    color: #a99;
+}
+
+V5 {
+    color: #000;
+    white-space: pre;
+}
+
+v0 {
+    background: #fc4;
+}
+
+v1 {
+    background: #e6a;
+}
+
+v3 {
+    background: #0f0;
+}
+
+v4 {
+    background: #f00;
+}
+
+v6 {
+    background: #01f;
+}
+
+v7 {
+    background: #e9f;
+}
+
+lt {
+    background: #fa6;
+}
+
+div {
+    position: relative;
+    float: left;
+}
+
+div2 {
+    position: absolute;
+    color: #fed;
+    line-height: 21px;
+}
+
+div3 {
+    position: relative;
+    height: 180px;
+    width: 720px;
+    float: left;
+    font-family: Arial, serif;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+div12h {
+    position: absolute;
+    width: 359px;
+    height: 160px;
+    left: 0px;
+    color: #300;
+    background: rgba(40, 20, 0, 0.5);
+}
+
+div1h {
+    position: absolute;
+    width: 179px;
+    height: 160px;
+    left: 360px;
+    color: #300;
+    background: rgba(120, 90, 0, 0.6);
+}
+
+div1m {
+    position: absolute;
+    width: 180px;
+    height: 160px;
+    left: 540px;
+    color: #300;
+    background: rgba(30, 70, 0, 0.5);
+}
+
+div4 {
+    position: absolute;
+    width: 236px;
+    height: 22px;
+    bottom: 9px;
+    color: #211;
+    background: #fa5;
+}
+
+div5 {
+    position: absolute;
+    background: rgba(120, 90, 0, 0.4);
+}
+
+button {
+    color: #b50;
+}
