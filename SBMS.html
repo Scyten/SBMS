@@ -6,6 +6,18 @@
         Icones animés comme fans dans vidéo interface (pourrait démarrer/arrêter quand on les part)
         panels semi transparents avec bordure plus foncés et bouts arrondis + onglet pour titreàà
         Mouse pointer different
+        Son menu system shock 2?
+        data: Date + heure plus secondes plus GMT
+        background dans chaque panneau, genre un outline d'une batterie
+        temp int/ext avec thermomètre
+        rollover sur boutons "save log"
+        font lettres cadran
+
+        panneaux comme dans panneaux.jpg
+         barre de titre pareille
+         lignes comme une règle dedans
+        background panneaux comme dans advancedui__status_screen_by_z_design
+        Titres avec autres boites comme "Processor Usage" "1" "3" dans futuristic-computer-screen-looping-animation_spkp1vjf__F0000
 
         Spinners
         https://www.dreamstime.com/stock-illustration-d-digital-hud-element-motion-nice-d-rendering-your-futuristic-project-image73948651
@@ -25,8 +37,9 @@
     <meta http-equiv='expires' content='0'>
     <meta http-equiv='pragma' content='no-cache'>
     <!--<meta http-equiv='refresh' content='3'>-->
-    <link rel="stylesheet" href="SBMS.css" />
+    <link rel="stylesheet" href="SBMS.css"/>
     <style media='screen' type='text/css'></style>
+    <script language="JavaScript" type="application/javascript" src="jquery-3.3.1.min.js"></script>
     <script language="JavaScript" type="application/javascript" src="all.js"></script>
 </head>
 <body style='background: #000;'>
@@ -112,30 +125,84 @@
     //http://192.168.4.1/
 </script>
 
-<!--<script type="text/javascript" src="data.js"></script>-->
+<script id="dataScript" type="text/javascript"></script>
 <!--<script type="text/javascript" src="http://192.168.4.1/"></script>-->
 
+
 <script>
-    sessionStorage['PV1'] = PV1;
-    sessionStorage['PV2'] = PV2;
-    sessionStorage['Batp'] = Btp;
-    sessionStorage['Batn'] = Btn;
-    sessionStorage['Ld'] = Ld;
-    sessionStorage['ELd'] = ELd;
+    var DATA_INTERVAL_OK = 3000;
+    var DATA_INTERVAL_ERROR = 10000;
+    var LOCAL_DEBUG = true;
+    var counter = 1;
 
-    localStorage['sbmsb'] = sbms;
-    localStorage['xsbms'] = xsbms;
-    localStorage['gsbms'] = gsbms;
-    localStorage['eA'] = eA;
-    localStorage['eW'] = eW;
-    localStorage['cap'] = s1[0];
-    localStorage['WA'] = s1[1];
-    localStorage['model'] = s1[2];
-    localStorage['sbms2'] = JSON.stringify(s2);
-    localStorage['sbms'] = localStorage['sbms'] + sbms + '\n';
+    function reset(){
+        $('#d2, #d3, #d4, #d6, #d7, #d8, #d9, #d10, #d11, #d12, #mt1, #g0, #g1, #g2, #g3, #g4, #g5, #g6, #g7, #g8, #ch0, #ch1, #ch2').empty();
+    }
 
-    all();
+    function parseData() {
+        reset();
+        sessionStorage['PV1'] = PV1;
+        sessionStorage['PV2'] = PV2;
+        sessionStorage['Batp'] = Btp;
+        sessionStorage['Batn'] = Btn;
+        sessionStorage['Ld'] = Ld;
+        sessionStorage['ELd'] = ELd;
+
+        localStorage['sbmsb'] = sbms;
+        localStorage['xsbms'] = xsbms;
+        localStorage['gsbms'] = gsbms;
+        localStorage['eA'] = eA;
+        localStorage['eW'] = eW;
+        localStorage['cap'] = s1[0];
+        localStorage['WA'] = s1[1];
+        localStorage['model'] = s1[2];
+        localStorage['sbms2'] = JSON.stringify(s2);
+        localStorage['sbms'] = localStorage['sbms'] + sbms + '\n';
+
+        all();
+    }
+
+    function startDataFetchTimer(miliseconds) {
+        console.log(miliseconds);
+        setTimeout(getData, miliseconds);
+    }
+
+    function getData() {
+        var dataUrl = LOCAL_DEBUG ? "data" + counter + ".js" : "http://naturalborncamper.com/sandbox/SBMS/data" + counter + ".js";
+        console.log(dataUrl);
+
+        if (LOCAL_DEBUG) {
+            $('#dataScript').off('ready load').remove();
+
+            bob = document.body.appendChild(document.createElement('script'));
+            bob.id = 'dataScript';
+            $('#dataScript').on('load', function () {
+                console.log('load');
+                parseData();
+                startDataFetchTimer(DATA_INTERVAL_OK);
+                (counter < 5) ? ++counter : counter = 1;
+            });
+            bob.src = dataUrl;
+        } else {
+            $.getScript(dataUrl)
+                .done(function (script, textStatus) {
+                    parseData();
+                    startDataFetchTimer(DATA_INTERVAL_OK);
+                    console.log(textStatus);
+                })
+                .fail(function (jqxhr, settings, exception) {
+                    startDataFetchTimer(DATA_INTERVAL_ERROR);
+                    console.log("Triggered ajaxError handler.");
+                })
+                .always(function () {
+                    (counter < 5) ? ++counter : counter = 1;
+                });
+        }
+    }
+
+    $(function () {
+        startDataFetchTimer(0);
+    })
 </script>
-
 </body>
 </html>

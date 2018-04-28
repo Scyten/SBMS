@@ -16,8 +16,8 @@ function all() {
     var sbms1 = ['', 'Batt', 'PV1', 'PV2', 'ExtLd', 'PV1+PV2', 'Load', 'ExtLd', localStorage['cap'], localStorage['WA'], localStorage['model']];
     var lg1 = "#B33A33B##333333B##B33A33B##B33333B##B''''''##A44A544##B44444B##;75444A##144B444##B33333B##444444B##2331$$A##B8:B:8B#";
 
-    var c = document.getElementById('Lg');
-    var ctx = c.getContext('2d');
+    // var c = document.getElementById('Lg');
+    // var ctx = c.getContext('2d');
     var r = '</br>'
 
 
@@ -25,11 +25,13 @@ function all() {
         document.getElementById(id).innerHTML = s;
     };
 
+/*
     function pad(n, width, z) {
         z = z || '0';
         n = n + '';
         return n.length >= width ? n : new Array(width - n.length + 1).join(z) + n;
     }
+*/
 
     function dcmp(p, s, d) {
         xx = 0;
@@ -67,14 +69,15 @@ function all() {
     drawChart('Batp ', 'Batn ', 1, Batp, Batn, '#ch1', '#0f0', '#f00', 1, 2, 200);
     drawChart('Load', 'ExtLd', 2, Ld, ELd, '#ch2', '#01f', '#e9f', 1, 2, 200);
 
-
+/*
     for (i = 0; i < 15; i++) {
         setInterval(function () {
             lg(lg1);
         }, 500 * i);
     }
-    ;
+*/
 
+/*
     function lg(d) {
         var k = new Date();
         var n = k.getSeconds();
@@ -116,7 +119,7 @@ function all() {
             }
         }
     }
-
+*/
     function drawChart(n, m, k, d1, d2, sl, cl, cl2, p, b, bt) {
         var cht = document.querySelector(sl);
         var l = 0;
