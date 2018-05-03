@@ -84,7 +84,7 @@ div3 {
     height: 180px;
     width: 720px;
     float: left;
-    font-family: Arial, serif;
+    /*font-family: Arial, serif;*/
     font-weight: bold;
     font-size: 18px;
 }

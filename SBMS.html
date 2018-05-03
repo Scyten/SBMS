@@ -30,6 +30,12 @@
         https://www.dreamstime.com/stock-illustration-space-game-asset-vector-elements-strategy-video-image70671245
         https://www.dreamstime.com/stock-illustration-space-game-asset-vector-elements-video-image58652427
 
+        Fonts
+        LCD
+        OSD
+        Futuristic
+        Digital
+        HUD
 
     -->
     <title>ElectroDacus</title>
@@ -38,23 +44,14 @@
     <meta http-equiv='pragma' content='no-cache'>
     <!--<meta http-equiv='refresh' content='3'>-->
     <link rel="stylesheet" href="SBMS.css"/>
+    <link rel="stylesheet" href="marco.css"/>
     <style media='screen' type='text/css'></style>
     <script language="JavaScript" type="application/javascript" src="jquery-3.3.1.min.js"></script>
     <script language="JavaScript" type="application/javascript" src="all.js"></script>
 </head>
-<body style='background: #000;'>
+<body>
 <div3 style='height: 135px;'>
-    <canvas id='Lg' width='70' height='120'
-            style='position:relative; top:11px; left:12px; z-index:2; float: left;'></canvas>
-    <div2 style='top:12px; left:360px; color:#d92;text-shadow:-1px -2px 1px #fd4,1px 2px 2px #fea;font-size:40px;'
-          id='id'></div2>
-    <div2 style='width:350px; top:82px; left:90px; color:#be5;float:none;'>
-        <div>www.ElectroDacus.com</div>
-        <div style='color:transparent; -webkit-transform: rotateX(180deg);transform: rotateX(180deg);-ms-transform:rotateX(180deg); text-shadow: 0px 0px 1px #371;'>
-            www.ElectroDacus.com
-        </div>
-    </div2>
-    <div2 id="demo"></div2>
+    <div2 style='display: none;' id='id'></div2>
     <div2 style='width:350px; top:82px; left:520px;'>
         <button onclick="dload('sbms.txt', localStorage['sbms']);">Save log</button>
         <button onclick="localStorage.removeItem('sbms');localStorage['sbms'] ='';">Clear log</button>
@@ -65,12 +62,25 @@
     <meter id='bat' style='height: 70px; width: 320px; top: 9px;' min='0' low='20' max='100'></meter>
     <meter style='height: 50px; left: 332px; top:18px; width: 15px;' min='2' max='8' value='0'></meter>
     <div2 style='color:#030;font-size:48px;top:35px;left:120px;text-shadow: -2px -2px 2px #efc;' id='SOC'></div2>
-    <div2 style='left:360px;color:#ea8;' id='d2'></div2>
-    <div2 style='left:430px;' id='d3'></div2>
-    <div2 style='left:490px;color:#888;' id='d4'></div2>
     <div2 style='left:5px;top:92px;color:#a99;line-height: 25px;' id='d12'></div2>
-    <div2 style='left:510px;' id='mt1'></div2>
 </div3>
+
+
+
+
+
+<div3 id="small-panel">
+    <div2 style='left:55px;color:#d00;' id='d2'></div2>
+    <div2 style='left:150px; color: #00a9da;' id='d3'></div2>
+    <div2 style='left:220px;color:#888;' id='d4'></div2>
+    <div2 style='left:240px;' id='mt1'></div2>
+</div3>
+
+
+
+
+
+
 <div3>
     <div2 style='left:5px;color:#ea8;top:22px;' id='d6'></div2>
     <div2 style='right:530px;text-align: right;' id='d7'></div2>
@@ -130,7 +140,7 @@
 
 
 <script>
-    var DATA_INTERVAL_OK = 3000;
+    var DATA_INTERVAL_OK = 30000;
     var DATA_INTERVAL_ERROR = 10000;
     var LOCAL_DEBUG = true;
     var counter = 1;

@@ -199,7 +199,7 @@ function all() {
                 n1 = '</mx1>';
             }
             ;
-            w[0] += n + 'Cell. ' + (x1 + 1) + n1 + r;
+            w[0] += n + 'Cell ' + (x1 + 1) + n1 + r;
             w[1] += n + cv.toFixed(3) + n1 + r;
             if (sbms2[x1] != 1) {
                 w[2] += '<txt>V</txt>' + r;
