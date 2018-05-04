@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3e77ee9e-7f72-4b31-a975-26340de3180a" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SBMS.css" beforeDir="false" afterPath="$PROJECT_DIR$/SBMS.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SBMS.html" beforeDir="false" afterPath="$PROJECT_DIR$/SBMS.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/all.js" beforeDir="false" afterPath="$PROJECT_DIR$/all.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/interface.psd" beforeDir="false" afterPath="$PROJECT_DIR$/resources/interface.psd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/marco.css" beforeDir="false" afterPath="$PROJECT_DIR$/marco.css" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -20,8 +17,8 @@
       <file leaf-file-name="SBMS.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/SBMS.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="203">
-              <caret line="142" column="30" selection-start-line="142" selection-start-column="30" selection-end-line="142" selection-end-column="30" />
+            <state relative-caret-position="186">
+              <caret line="138" column="58" selection-start-line="138" selection-start-column="58" selection-end-line="138" selection-end-column="58" />
               <folding>
                 <element signature="n#style#0;n#div2#0;n#div3#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div2#0;n#div3#1;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -47,8 +44,8 @@
       <file leaf-file-name="marco.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/marco.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="400">
-              <caret line="28" column="20" lean-forward="true" selection-start-line="28" selection-start-column="20" selection-end-line="28" selection-end-column="20" />
+            <state relative-caret-position="825">
+              <caret line="53" column="36" lean-forward="true" selection-start-line="53" selection-start-column="36" selection-end-line="56" selection-end-column="32" />
             </state>
           </provider>
         </entry>
@@ -57,7 +54,7 @@
         <entry file="file://$PROJECT_DIR$/SBMS.css">
           <provider selected="true" editor-type-id="text-editor">
             <state>
-              <caret selection-end-line="9" selection-end-column="1" />
+              <caret column="7" lean-forward="true" selection-start-column="7" selection-end-line="1" selection-end-column="29" />
             </state>
           </provider>
         </entry>
@@ -66,7 +63,7 @@
         <entry file="file://$PROJECT_DIR$/all.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="288">
-              <caret line="201" column="30" selection-start-line="201" selection-start-column="30" selection-end-line="201" selection-end-column="30" />
+              <caret line="51" column="32" selection-start-line="51" selection-start-column="29" selection-end-line="51" selection-end-column="32" />
             </state>
           </provider>
         </entry>
@@ -84,13 +81,14 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>dcmp</find>
-      <find>bat</find>
       <find>lg</find>
       <find>lg1</find>
       <find>Cell</find>
       <find>pad</find>
-      <find>font</find>
       <find>LG</find>
+      <find>SOC</find>
+      <find>bat</find>
+      <find>font</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -104,6 +102,7 @@
         <option value="$PROJECT_DIR$/test.js" />
         <option value="$PROJECT_DIR$/SBMS.css" />
         <option value="$PROJECT_DIR$/all.js" />
+        <option value="$PROJECT_DIR$/SBMS_original.html" />
         <option value="$PROJECT_DIR$/marco.css" />
         <option value="$PROJECT_DIR$/SBMS.html" />
       </list>
@@ -125,7 +124,7 @@
     <option name="x" value="-8" />
     <option name="y" value="-8" />
     <option name="width" value="1936" />
-    <option name="height" value="1056" />
+    <option name="height" value="1096" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -178,12 +177,12 @@
       <updated>1524786359420</updated>
       <workItem from="1524786361130" duration="6327000" />
       <workItem from="1524869889957" duration="612000" />
-      <workItem from="1524874262426" duration="20615000" />
+      <workItem from="1524874262426" duration="27180000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="27554000" />
+    <option name="totallyTimeSpent" value="34119000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -196,11 +195,11 @@
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Terminal" order="7" />
-      <window_info content_ui="combo" id="Project" order="1" sideWeight="0.49946865" visible="true" weight="0.1296875" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" sideWeight="0.49946865" visible="true" weight="0.1296875" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="1" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32943678" />
-      <window_info active="true" anchor="right" id="Structure" order="5" sideWeight="0.5005314" side_tool="true" visible="true" weight="0.1296875" />
+      <window_info anchor="right" id="Structure" order="5" sideWeight="0.5005314" side_tool="true" visible="true" weight="0.1296875" />
       <window_info id="Favorites" order="0" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="4" weight="0.25" />
@@ -306,31 +305,38 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/SBMS_original.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="488">
+          <caret line="241" column="41" selection-start-line="241" selection-start-column="41" selection-end-line="241" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/all.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="288">
-          <caret line="201" column="30" selection-start-line="201" selection-start-column="30" selection-end-line="201" selection-end-column="30" />
+          <caret line="51" column="32" selection-start-line="51" selection-start-column="29" selection-end-line="51" selection-end-column="32" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/SBMS.css">
       <provider selected="true" editor-type-id="text-editor">
         <state>
-          <caret selection-end-line="9" selection-end-column="1" />
+          <caret column="7" lean-forward="true" selection-start-column="7" selection-end-line="1" selection-end-column="29" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/marco.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="28" column="20" lean-forward="true" selection-start-line="28" selection-start-column="20" selection-end-line="28" selection-end-column="20" />
+        <state relative-caret-position="825">
+          <caret line="53" column="36" lean-forward="true" selection-start-line="53" selection-start-column="36" selection-end-line="56" selection-end-column="32" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/SBMS.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="142" column="30" selection-start-line="142" selection-start-column="30" selection-end-line="142" selection-end-column="30" />
+        <state relative-caret-position="186">
+          <caret line="138" column="58" selection-start-line="138" selection-start-column="58" selection-end-line="138" selection-end-column="58" />
           <folding>
             <element signature="n#style#0;n#div2#0;n#div3#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div2#0;n#div3#1;n#body#0;n#html#0;n#!!top" expanded="true" />

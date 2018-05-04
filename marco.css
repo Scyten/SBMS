@@ -21,7 +21,8 @@
 
 body {
     font-family: 'OCR A Extended';
-    background-image: url("grid.gif");
+    background-image: url("grid_white_inverted.gif");
+    /*background-image: url("grid.gif");*/
     /*font-family: 'OCRAStdRegular';*/
 }
 
@@ -49,4 +50,9 @@ mx1 {
 
 meter {
     box-shadow: 1px 2px 3px #00a9da;
+    -webkit-appearance: progress-bar;
+    /*-webkit-transform: rotate(-90deg);*/
+    /*-moz-transform: rotate(-90deg);*/
+    /*-o-transform: rotate(-90deg);*/
+    /*transform: rotate(-90deg);*/
 }

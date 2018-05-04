@@ -45,6 +45,7 @@
     <!--<meta http-equiv='refresh' content='3'>-->
     <link rel="stylesheet" href="SBMS.css"/>
     <link rel="stylesheet" href="marco.css"/>
+    <link rel="icon" type="image/png" href="favicon.png"/>
     <style media='screen' type='text/css'></style>
     <script language="JavaScript" type="application/javascript" src="jquery-3.3.1.min.js"></script>
     <script language="JavaScript" type="application/javascript" src="all.js"></script>
@@ -66,19 +67,12 @@
 </div3>
 
 
-
-
-
 <div3 id="small-panel">
     <div2 style='left:55px;color:#d00;' id='d2'></div2>
     <div2 style='left:150px; color: #00a9da;' id='d3'></div2>
     <div2 style='left:220px;color:#888;' id='d4'></div2>
     <div2 style='left:240px;' id='mt1'></div2>
 </div3>
-
-
-
-
 
 
 <div3>
@@ -140,12 +134,16 @@
 
 
 <script>
-    var DATA_INTERVAL_OK = 30000;
+    let searchParams = new URLSearchParams(window.location.search);
+    // searchParams.has('sent');
+    let interval = parseInt(searchParams.get('interval'));
+
+    var DATA_INTERVAL_OK = isNaN(interval)? 2000: interval;
     var DATA_INTERVAL_ERROR = 10000;
     var LOCAL_DEBUG = true;
     var counter = 1;
 
-    function reset(){
+    function reset() {
         $('#d2, #d3, #d4, #d6, #d7, #d8, #d9, #d10, #d11, #d12, #mt1, #g0, #g1, #g2, #g3, #g4, #g5, #g6, #g7, #g8, #ch0, #ch1, #ch2').empty();
     }
 
