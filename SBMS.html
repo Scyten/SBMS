@@ -3,15 +3,9 @@
 <head>
     <!--
         Background quadrillé bleu semi invisible (voir screenshots)
-        Icones animés comme fans dans vidéo interface (pourrait démarrer/arrêter quand on les part)
-        panels semi transparents avec bordure plus foncés et bouts arrondis + onglet pour titreàà
-        Mouse pointer different
+        panels semi transparents avec bordure plus foncés et bouts arrondis + onglet pour titre
         Son menu system shock 2?
-        data: Date + heure plus secondes plus GMT
-        background dans chaque panneau, genre un outline d'une batterie
-        temp int/ext avec thermomètre
-        rollover sur boutons "save log"
-        font lettres cadran
+        animated en bas des panneaux. Regarder panneaux.jpg dans inspiration, faire bouger les points de gauche à droite (tester si lag avant, pendant regénération)
 
         panneaux comme dans panneaux.jpg
          barre de titre pareille
@@ -30,13 +24,61 @@
         https://www.dreamstime.com/stock-illustration-space-game-asset-vector-elements-strategy-video-image70671245
         https://www.dreamstime.com/stock-illustration-space-game-asset-vector-elements-video-image58652427
 
-        Fonts
-        LCD
-        OSD
-        Futuristic
-        Digital
-        HUD
+        Border
+        https://www.w3.org/TR/css-backgrounds-3/#border-images
+        * https://csscreator.com/content/border-image
+        https://css-tricks.com/understanding-border-image/
+        generators
+            http://border-image.com/#%7B%22src%22%3A%22page-store%3A%2F%2F3%22%2C%22linkBorder%22%3Atrue%2C%22borderWidth%22%3A%5B0%2C0%2C0%2C0%5D%2C%22imageOffset%22%3A%5B219%2C851%2C180%2C712%5D%2C%22fill%22%3Afalse%2C%22setRepat%22%3Afalse%2C%22repeat%22%3A%5B%22repeat%22%2C%22repeat%22%5D%2C%22scaleFactor%22%3A0.40429564118761846%2C%22setRepeat%22%3Atrue%7D
 
+        Interface new
+            https://www.google.ca/search?q=dead+space+menu&source=lnms&tbm=isch&sa=X&ved=0ahUKEwizyqOK2YbbAhUmh-AKHfMcBZwQ_AUICigB#imgrc=D0OHQK6iLKsLCM:
+            https://www.google.ca/search?biw=1920&bih=900&tbm=isch&sa=1&ei=4kj6WonnF_Ke_Qb_3omIDA&q=crysis+menu&oq=crysis+menu&gs_l=img.3..0j0i7i30k1j0i24k1.84543.85250.0.85387.6.6.0.0.0.0.118.600.4j2.6.0....0...1c.1.64.img..0.6.591....0.jspvjYNa5O8#imgrc=16RVYtmezc6XlM:
+
+        GENERAL
+            mouse pointer
+            background dans chaque panneau, genre un outline d'une batterie
+        MAIN SCREEN (LEFT)
+            Battery
+                battery meter with color changing according to level
+            Cells
+                All the meters with colors changing according to level
+            Info
+                Add
+                    Date + heure plus secondes plus GMT
+                Type: 1
+                Cap: 200Ah
+                Status: 20480
+                SBMS Temp Int: 34.1℃
+                    avec thermomètre
+                Ext: -45.0℃
+                    avec thermomètre
+                BattVoltage 13.357 V
+                Cell Δ 7 mV
+                status lights
+                    PV1 & PV2
+                    battery
+                    load
+                buttons
+                    Save log
+                    Reset log
+                    Add
+                        rollover sur boutons "save log"
+                        toggle sound
+        GRAPH SCREEN (Right)
+            Statistics
+            time graphs
+                lignes horizontales 25% 50% 75%
+                À droite graph, fan/turbine/etc qui tourne vitesse de la valeur du graph (ou valeur moyenne)
+                    plein de lignes horizontales semi-transparentes par dessus fan, un peu comme si c'était une télé?
+
+
+        TODO
+            value red battery (ex 0, or 40)
+            update data doit aussi updater load/battery/pvr1/pvr2 (activer/désactiver LED)
+            mettre LEDs plus bright?
+            Meter cells même style que la grosse batterie
+            LEDs temperature, allumées avec température min et max réglables
     -->
     <title>ElectroDacus</title>
     <meta http-equiv='cache-control' content='no-cache'>
@@ -51,28 +93,82 @@
     <script language="JavaScript" type="application/javascript" src="all.js"></script>
 </head>
 <body>
-<div3 style='height: 135px;'>
-    <div2 style='display: none;' id='id'></div2>
-    <div2 style='width:350px; top:82px; left:520px;'>
-        <button onclick="dload('sbms.txt', localStorage['sbms']);">Save log</button>
-        <button onclick="localStorage.removeItem('sbms');localStorage['sbms'] ='';">Clear log</button>
-    </div2>
+<!--<img class="image" src="http://i.stack.imgur.com/pC1Tv.jpg" alt="" width="120" height="120">-->
 
-</div3>
-<div3>
-    <meter id='bat' style='height: 70px; width: 320px; top: 9px;' min='0' low='20' max='100'></meter>
-    <meter style='height: 50px; left: 332px; top:18px; width: 15px;' min='2' max='8' value='0'></meter>
-    <div2 style='color:#030;font-size:48px;top:35px;left:120px;text-shadow: -2px -2px 2px #efc;' id='SOC'></div2>
-    <div2 style='left:5px;top:92px;color:#a99;line-height: 25px;' id='d12'></div2>
-</div3>
+<div2 style='display: none;' id='id'></div2>
 
 
-<div3 id="small-panel">
-    <div2 style='left:55px;color:#d00;' id='d2'></div2>
-    <div2 style='left:150px; color: #00a9da;' id='d3'></div2>
-    <div2 style='left:220px;color:#888;' id='d4'></div2>
-    <div2 style='left:240px;' id='mt1'></div2>
-</div3>
+<div id="leftPanel">
+    <div class="test2">
+        <span class="section-title">Info</span>
+        <div id="first">
+            <div class="infoBar">
+                <span id="infoBarTitle1" class="infoBarTitle"></span>
+                <span id="infoBarValue1" class="infoBarValue"></span>
+            </div>
+            <div class="infoBar">
+                <span id="infoBarTitle2" class="infoBarTitle"></span>
+                <span id="infoBarValue2" class="infoBarValue"></span>
+            </div>
+            <div class="infoBar">
+                <span id="infoBarTitle3" class="infoBarTitle"></span>
+                <span id="infoBarValue3" class="infoBarValue"></span>
+            </div>
+            <div class="infoBar">
+                <span id="infoBarTitle4" class="infoBarTitle"></span>
+                <span id="infoBarValue4" class="infoBarValue"></span>
+            </div>
+            <div class="infoBar">
+                <span id="infoBarTitle5" class="infoBarTitle"></span>
+                <span id="infoBarValue5" class="infoBarValue"></span>
+            </div>
+            <div class="infoBar">
+                <span id="infoBarTitle6" class="infoBarTitle"></span>
+                <span id="infoBarValue6" class="infoBarValue"></span>
+            </div>
+            <div class="infoBar">
+                <span id="infoBarTitle7" class="infoBarTitle"></span>
+                <span id="infoBarValue7" class="infoBarValue"></span>
+            </div>
+            <div2 style='left:5px;top:92px;color:#a99;line-height: 25px;' id='d12'></div2>
+        </div>
+    </div>
+    <div class="test2">
+        <span class="section-title">Status</span>
+        <div id="second">
+            <!--<meter id='bat' style='height: 40px; width: 220px; top: 9px;' min='0' low='20' max='100'></meter>-->
+            <div id='batt-container'>
+                <div id="batt-gloss"></div>
+                <div id="batt-fill"></div>
+            </div>
+            <meter style='height: 20px; left: 221px; top:23px; width: 5px;' min='2' max='8' value='0'></meter>
+            <div2 style='color:#030;font-size:200%;top:25px;left:90px;text-shadow: -2px -2px 2px #efc;' id='SOC'></div2>
+
+            <div class="button-container">
+                <button onclick="dload('sbms.txt', localStorage['sbms']);">SAVE</button>
+                <button onclick="localStorage.removeItem('sbms');localStorage['sbms'] ='';">CLEAR</button>
+            </div>
+
+            <div id="status-leds">
+                <div id="led0">PV1 & PV2<div class="led led-yellow"></div></div>
+                <div id="led2">BATTERY<div class="led led-yellow"></div></div>
+                <div id="led1">LOAD<div class="led led-yellow"></div></div>
+            </div>
+        </div>
+    </div>
+    <div class="test2">
+        <span class="section-title">Cells</span>
+        <div id="third">
+            <div class="largeBar">
+                <div2 style='left:20px; color:#d00;' id='d2'></div2>
+                <div2 style='left:115px; color: #00a9da;' id='d3'></div2>
+                <div2 style='left:165px;color:#888;' id='d4'></div2>
+                <div2 style='left:200px;' id='mt1'></div2>
+            </div>
+        </div>
+    </div>
+
+</div>
 
 
 <div3>
@@ -85,7 +181,6 @@
     <div4 id='mo0'>PV1 & PV2</div4>
     <div4 id='mo2' style='left:240px;'>Battery</div4>
     <div4 id='mo1' style='left:480px;'>Load</div4>
-
 </div3>
 <div3>
     <div style='background: #fb9;width: 720px;height:25px;'></div>
@@ -138,13 +233,21 @@
     // searchParams.has('sent');
     let interval = parseInt(searchParams.get('interval'));
 
-    var DATA_INTERVAL_OK = isNaN(interval)? 2000: interval;
+    var DATA_INTERVAL_OK = isNaN(interval) ? 2000 : interval;
     var DATA_INTERVAL_ERROR = 10000;
     var LOCAL_DEBUG = true;
     var counter = 1;
 
     function reset() {
         $('#d2, #d3, #d4, #d6, #d7, #d8, #d9, #d10, #d11, #d12, #mt1, #g0, #g1, #g2, #g3, #g4, #g5, #g6, #g7, #g8, #ch0, #ch1, #ch2').empty();
+    }
+
+    function getHslColor(value) {
+        value = value / 100.0;
+        //value from 0 to 1
+        var hue = (value * 120).toString(10);
+        return ['linear-gradient(hsl(', hue, ',90%,80%), hsl(', hue, ',90%,50%), hsl(', hue, ',90%,50%), hsl(', hue, ',90%,30%))'].join("");
+        // return ["hsl(", hue, ",100%,50%)"].join("");
     }
 
     function parseData() {

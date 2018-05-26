@@ -42,26 +42,30 @@ function all() {
     }
 
     function fN(nm) {
-        return nm.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 , ')
+        return nm.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
     }
 
     htm('id', sbms1[10]);
     var SOC = '';
     SOC = dcmp(6, 2, sbms);
+    // SOC = 80;
     htm('SOC', '<b>' + SOC + '%</b>');
-    document.getElementById('bat').value = SOC;
+    $('#batt-fill').css('width', SOC+'%');
+    $('#batt-fill').css('background', getHslColor(SOC));
+    // document.getElementById('bat').value = SOC;
 
     if (sbms2[10] != 1) {
         mos(0);
     }
-    ;
+
     if (sbms2[11] != 1) {
         mos(1);
     }
-    ;
+
 
     function mos(rr) {
-        document.getElementById('mo' + rr).style.background = 'rgba(120,90,0,0.7)';
+        // document.getElementById('mo' + rr).style.background = 'rgba(120,90,0,0.7)';
+        $('#led'+rr).find('.led').css('animation', 'none');
     }
 
 
@@ -229,8 +233,8 @@ function all() {
                 n2 = sbms.charAt(28);
                 w[8] = '[A]' + r;
                 w[9] = '[W]' + r;
-                w[10] = '[MAh][kAh][Ah][mAh]' + r;
-                w[11] = '[MWh][kWh][Wh]' + r;
+                w[10] = '[mAh]' + r;
+                w[11] = '[Wh]' + r;
             }
             ;
             if (x1 == 1 || x1 == 2) {
@@ -261,7 +265,21 @@ function all() {
         for (i = 6; i < 11; i++) {
             htm('d' + i, w[i - 3]);
         }
-        htm('d' + 12, 'Type: ' + dcmp(7, 1, xsbms) + ' Cap: ' + dcmp(8, 3, xsbms) + sbms1[8] + ' Status: ' + dcmp(56, 3, sbms) + r + 'SBMS Temp Int: ' + ((dcmp(24, 2, sbms) / 10) - 45).toFixed(1) + '&#8451 Ext: ' + ((dcmp(26, 2, sbms) / 10) - 45).toFixed(1) + '&#8451' + r + 'BattVoltage <Val>' + bv.toFixed(3) + '</Val> V Cell &#916 <Val>' + ((max1 - min1) * 1000).toFixed(0) + '</Val> mV');
+        $('#infoBarTitle1').html('System type');
+        $('#infoBarValue1').html(dcmp(7, 1, xsbms));
+        $('#infoBarTitle2').html('Maximum capacity');
+        $('#infoBarValue2').html(dcmp(8, 3, xsbms) + sbms1[8]);
+        $('#infoBarTitle3').html('System status');
+        $('#infoBarValue3').html(dcmp(56, 3, sbms) + r);
+        $('#infoBarTitle4').html('Interior temperature');
+        $('#infoBarValue4').html(((dcmp(24, 2, sbms) / 10) - 45).toFixed(1) + '&#8451');
+        $('#infoBarTitle5').html('Exterior temperature');
+        $('#infoBarValue5').html(((dcmp(26, 2, sbms) / 10) - 45).toFixed(1) + '&#8451');
+        $('#infoBarTitle6').html('Battery voltage');
+        $('#infoBarValue6').html(bv.toFixed(3) + 'V');
+        $('#infoBarTitle7').html('Cell &#916');
+        $('#infoBarValue7').html(((max1 - min1) * 1000).toFixed(0) + 'mV');
+        // htm('d' + 12, 'Type: ' + dcmp(7, 1, xsbms) + ' Cap: ' + dcmp(8, 3, xsbms) + sbms1[8] + ' Status: ' + dcmp(56, 3, sbms) + r + 'SBMS Temp Int: ' + ((dcmp(24, 2, sbms) / 10) - 45).toFixed(1) + '&#8451 Ext: ' + ((dcmp(26, 2, sbms) / 10) - 45).toFixed(1) + '&#8451' + r + 'BattVoltage <Val>' + bv.toFixed(3) + '</Val> V Cell &#916 <Val>' + ((max1 - min1) * 1000).toFixed(0) + '</Val> mV');
     }
 
 }
