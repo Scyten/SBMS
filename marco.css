@@ -375,30 +375,37 @@ button:hover {
 
 .graph-info {
     position: absolute;
+    top: 0;
+    /*width: 1px;*/
+    height: 7px;
     border-style: solid;
-    width: 1px;
-    height: 10px;
-    border-width: 11px 67px 11px 69px;
-    -moz-border-image: url(infoBar-narrow.png) 11 67 11 69 repeat;
-    -webkit-border-image: url(infoBar-narrow.png) 11 67 11 69 repeat;
-    -o-border-image: url(infoBar-narrow.png) 11 67 11 69 repeat;
-    border-image: url(infoBar-narrow.png) 11 67 11 69 fill repeat;
+    border-width: 8px 12px 10px;
+    -moz-border-image: url(infobar-simple.png) 8 12 10 repeat;
+    -webkit-border-image: url(infobar-simple.png) 8 12 10 repeat;
+    -o-border-image: url(infobar-simple.png) 8 12 10 repeat;
+    border-image: url(infobar-simple.png) 8 12 10 fill repeat;
+    /*border-width: 11px 67px 11px 69px;*/
+    /*-moz-border-image: url(infoBar-narrow.png) 11 67 11 69 repeat;*/
+    /*-webkit-border-image: url(infoBar-narrow.png) 11 67 11 69 repeat;*/
+    /*-o-border-image: url(infoBar-narrow.png) 11 67 11 69 repeat;*/
+    /*border-image: url(infoBar-narrow.png) 11 67 11 69 fill repeat;*/
 }
 
-.graph-info:nth-of-type(1) {
+.graph-info.first {
     left: 10px;
 }
 
-.graph-info:nth-of-type(2) {
-    left: 550px;
-}
-
-.graph-info:nth-of-type(3) {
+.graph-info.second {
     left: 370px;
 }
 
+.graph-info.third {
+    left: 550px;
+}
+
 .graph-info span {
-    left: -30px;
+    top: -5px;
+    position: relative;
 }
 
 .bar {
