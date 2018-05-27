@@ -197,7 +197,7 @@
 <div class="test3">
     <div class="graph-panel">
         <div class="fan">
-            <img src="fan.png" />
+            <img id="fan0-0" src="fan.png" />
         </div>
         <div class="legend">
             <span class="laser laser-yellow"></span>
@@ -206,7 +206,7 @@
         </div>
         <br>
         <div class="fan">
-            <img src="fan.png" />
+            <img id="fan0-1" src="fan.png" />
         </div>
         <div class="legend">
             <span class="laser laser-cyan"></span>
@@ -231,7 +231,7 @@
 <div class="test3">
     <div class="graph-panel">
         <div class="fan">
-            <img src="fan.png" />
+            <img id="fan3-0" src="fan.png" />
         </div>
         <div class="legend">
             <span class="laser laser-green"></span>
@@ -240,7 +240,7 @@
         </div>
         <br>
         <div class="fan">
-            <img src="fan.png" />
+            <img id="fan3-1" src="fan.png" />
         </div>
         <div class="legend">
             <span class="laser laser-red"></span>
@@ -265,7 +265,7 @@
 <div class="test3">
     <div class="graph-panel">
         <div class="fan">
-            <img src="fan.png" />
+            <img id="fan6-0" src="fan.png" />
         </div>
         <div class="legend">
             <span class="laser laser-blue"></span>
@@ -274,7 +274,7 @@
         </div>
         <br>
         <div class="fan">
-            <img src="fan.png" />
+            <img id="fan6-1" src="fan.png" />
         </div>
         <div class="legend">
             <span class="laser laser-magenta"></span>
@@ -296,30 +296,6 @@
     </div3>
 </div>
 
-<script id='smain2'>
-    all();
-
-    function dload(n, t) {
-        var pom = document.createElement('a');
-        pom.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(t));
-        pom.setAttribute('download', n);
-        if (document.createEvent) {
-            var event = document.createEvent('MouseEvents');
-            event.initEvent('click', true, true);
-            pom.dispatchEvent(event);
-        }
-        else {
-            pom.click();
-        }
-    }
-
-    //http://192.168.4.1/
-</script>
-
-<script id="dataScript" type="text/javascript"></script>
-<!--<script type="text/javascript" src="http://192.168.4.1/"></script>-->
-
-
 <script>
     let searchParams = new URLSearchParams(window.location.search);
     // searchParams.has('sent');
@@ -329,6 +305,13 @@
     var DATA_INTERVAL_ERROR = 10000;
     var LOCAL_DEBUG = true;
     var counter = 1;
+    var FAN_MAX_SPEED = 0.5;
+    var FAN_MIN_SPEED = 1.5;
+    var FAN_DELTA = FAN_MIN_SPEED - FAN_MAX_SPEED;
+    var averages = [];
+    averages[0] = [-1,-1];
+    averages[3] = [-1,-1];
+    averages[6] = [-1,-1];
 
     function reset() {
         $('#d2, #d3, #d4, #d6, #d7, #d8, #d9, #d10, #d11, #d12, #mt1, #g0, #g1, #g2, #g3, #g4, #g5, #g6, #g7, #g8, #ch0, #ch1, #ch2').empty();
@@ -340,6 +323,22 @@
         var hue = (value * 120).toString(10);
         return ['linear-gradient(hsl(', hue, ',90%,80%), hsl(', hue, ',90%,50%), hsl(', hue, ',90%,50%), hsl(', hue, ',90%,30%))'].join("");
         // return ["hsl(", hue, ",100%,50%)"].join("");
+    }
+
+    function setFanRotation(fanId1, fanId2){
+        var selector = "#fan"+fanId1+"-"+fanId2;
+        console.log(averages[fanId1][fanId2]);
+
+        // If average value is 0, set random rotation
+        if (averages[fanId1][fanId2] <= 0){
+            console.log('SDFSD');
+            $(selector).css('transform', 'rotate(' + Math.random()*120 + 'deg)');
+            $(selector).css('-webkit-animation', 'none').css('-moz-animation', 'none').css('animation', 'none');
+        }
+        else{
+            var css = "spin "+(((100-averages[fanId1][fanId2])/100*FAN_DELTA)+FAN_MAX_SPEED)+"s linear infinite";
+            $(selector).css('-webkit-animation', css).css('-moz-animation', css).css('animation', css);
+        }
     }
 
     function parseData() {
@@ -402,10 +401,63 @@
                 });
         }
     }
+</script>
 
+
+<script id='smain2'>
+    all();
+
+    function dload(n, t) {
+        var pom = document.createElement('a');
+        pom.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(t));
+        pom.setAttribute('download', n);
+        if (document.createEvent) {
+            var event = document.createEvent('MouseEvents');
+            event.initEvent('click', true, true);
+            pom.dispatchEvent(event);
+        }
+        else {
+            pom.click();
+        }
+    }
+
+    //http://192.168.4.1/
+</script>
+
+<script id="dataScript" type="text/javascript"></script>
+<!--<script type="text/javascript" src="http://192.168.4.1/"></script>-->
+
+<script>
     $(function () {
         startDataFetchTimer(0);
     })
 </script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

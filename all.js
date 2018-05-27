@@ -130,6 +130,8 @@ function all() {
     function drawChart(n, m, k, d1, d2, sl, cl, cl2, p, b, bt) {
         var cht = document.querySelector(sl);
         var l = 0;
+        var avg1 = 0;
+        var avg2 = 0;
         for (i = 0; i < 240; i++) {
             var h1 = (((dcmp(i, 1, d1)) / 180) * bt);
             var h2 = (((dcmp(i, 1, d2)) / 180) * bt);
@@ -157,6 +159,10 @@ function all() {
             cht.appendChild(f2);
             // cht.appendChild(f3);
             l += (b + p);
+            if (i >= 180){
+                avg1 += h1;
+                avg2 += h2;
+            }
         }
         k = k * 3;
         var sp = '        ';
@@ -167,14 +173,27 @@ function all() {
             dd = 1;
             ss = 10
         }
-        ;
+
+        avg1 = Math.round(avg1/60);
+        avg2 = Math.round(avg2/60);
+        avg1=0.00000;
+        avg2=90;
+
+        if (averages[k][0] != avg1){
+            averages[k][0] = avg1;
+            setFanRotation(k, 0);
+        }
+        else if (averages[k][1] != avg2){
+            averages[k][1] = avg2;
+            setFanRotation(k, 1);
+        }
 
         for (i = 0; i < 3; i++) {
             if (i == 1) {
                 n = m = '';
                 b0 = '1h';
             }
-            if (i == 2) {
+            else if (i == 2) {
                 n = m = '';
                 b0 = '1m';
             }
