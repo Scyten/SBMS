@@ -104,6 +104,10 @@ body {
     color: #00a9da;
 }
 
+#useless {
+    display: none;
+}
+
 mn1 {
     border: none;
     color: #ee0;
@@ -152,6 +156,22 @@ meter {
     -webkit-border-image: url(boundaries-small.png) 53 227 45 76 repeat;
     -o-border-image: url(boundaries-small.png) 53 227 45 76 repeat;
     border-image: url(boundaries-small.png) 53 227 45 76 repeat;
+}
+
+.test3 {
+    /*float: none;*/
+    display: block;
+    position: relative;
+    margin-bottom: 10px;
+    border-style: solid;
+    border-width: 22px 22px 23px 23px;
+    width: 840px;
+    left: 10px;
+    height: 125px;
+    -moz-border-image: url(boundaries-simple.png) 22 22 23 23 repeat;
+    -webkit-border-image: url(boundaries-simple.png) 22 22 23 23 repeat;
+    -o-border-image: url(boundaries-simple.png) 22 22 23 23 repeat;
+    border-image: url(boundaries-simple.png) 22 22 23 23 repeat;
 }
 
 .infoBar {
@@ -213,7 +233,7 @@ button {
     border: solid 2px #36afff;
     width: 70px;
     font-family: 'OCR A Extended';
-    background-color: rgba(255,255,255,0.2);
+    background-color: rgba(255, 255, 255, 0.2);
     margin-bottom: 10px;
     color: white;
     line-height: 135%;
@@ -223,7 +243,7 @@ button {
 button:hover {
     border-color: #008dff;
     cursor: pointer;
-    background-color: rgba(255,255,255,0.1);
+    background-color: rgba(255, 255, 255, 0.1);
 }
 
 .led {
@@ -244,6 +264,119 @@ button:hover {
     animation: blinkYellow 2s infinite;
 }
 
+.hours12, .hour1, .min1 {
+    position: absolute;
+    color: rgba(255, 255, 255, 0.05);
+    font-size: 700%;
+    /*line-height: 135px;*/
+    top: 20px;
+}
+
+.hours12 {
+    left: 80px;
+}
+
+.hour1 {
+    left: 370px;
+}
+
+.min1 {
+    left: 550px;
+}
+
+.graph-panel {
+    top: -10px;
+    left: -10px;
+    float: left;
+    /*border: 1px solid red;*/
+    /*width: 100px;*/
+    /*height: 70px;*/
+    color: white;
+}
+
+.fan {
+    background: url(fan-contour.png);
+    margin-bottom: 10px;
+}
+
+.legend {
+    float: right;
+    padding-top: 10px;
+    padding-left: 5px;
+    line-height: 150%;
+}
+
+.laser {
+    display: inline-block;
+    width: 30px;
+    /*height:0px;*/
+    border: 2px solid #dadada;
+    border-radius: 7px;
+    box-shadow: 0 0 10px #9ecaed;
+}
+
+.laser-yellow {
+    border-color: #ff0;
+    box-shadow: 0 0 10px #ff0;
+}
+
+.laser-cyan {
+    border-color: #0ff;
+    box-shadow: 0 0 10px #0ff;
+}
+
+.laser-green {
+    border-color: #0f0;
+    box-shadow: 0 0 10px #0f0;
+}
+
+.laser-red {
+    border-color: #f00;
+    box-shadow: 0 0 10px #f00;
+}
+
+.laser-blue {
+    border-color: #01f;
+    box-shadow: 0 0 10px #01f;
+}
+
+.laser-magenta {
+    border-color: #f0f;
+    box-shadow: 0 0 10px #f0f;
+}
+
+.graph-info {
+    position: absolute;
+    border-style: solid;
+    width: 1px;
+    height: 10px;
+    border-width: 11px 67px 11px 69px;
+    -moz-border-image: url(infoBar-narrow.png) 11 67 11 69 repeat;
+    -webkit-border-image: url(infoBar-narrow.png) 11 67 11 69 repeat;
+    -o-border-image: url(infoBar-narrow.png) 11 67 11 69 repeat;
+    border-image: url(infoBar-narrow.png) 11 67 11 69 fill repeat;
+}
+
+.graph-info:nth-of-type(1) {
+    left: 10px;
+}
+
+.graph-info:nth-of-type(2) {
+    left: 550px;
+}
+
+.graph-info:nth-of-type(3) {
+    left: 370px;
+}
+
+.graph-info span {
+    left: -30px;
+}
+
+.bar {
+    width: 2px;
+}
+
 @keyframes blinkYellow {
     from {
         background-color: #AA0;
@@ -257,17 +390,57 @@ button:hover {
     }
 }
 
-/*.image {*/
-/*position: absolute;*/
-/*top: 50%;*/
-/*left: 50%;*/
-/*width: 120px;*/
-/*height: 120px;*/
-/*margin:-60px 0 0 -60px;*/
-/*-webkit-animation:spin 4s linear infinite;*/
-/*-moz-animation:spin 4s linear infinite;*/
-/*animation:spin 0.25s linear infinite;*/
-/*}*/
-/*@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }*/
-/*@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }*/
-/*@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }*/
+div12h, div1h, div1m {
+    height: 135px;
+}
+
+div12h {
+    background: rgba(22, 150, 255, 0.1);
+}
+
+div1h {
+    background: rgba(22, 150, 255, 0.2);
+}
+
+div1m {
+    background: rgba(22, 150, 255, 0.3);
+}
+
+div3 {
+    top: -5px;
+    /*left: -10px;*/
+    color: white;
+}
+
+.fan img {
+    margin: 5px;
+    transform-origin: 30px 31px;
+    /*position: absolute;*/
+    /*top: 50%;*/
+    /*left: 50%;*/
+    /*width: 120px;*/
+    /*height: 120px;*/
+    /*margin:-60px 0 0 -60px;*/
+    -webkit-animation: spin 4s linear infinite;
+    -moz-animation: spin 4s linear infinite;
+    animation: spin 0.50s linear infinite;
+}
+
+@-moz-keyframes spin {
+    100% {
+        -moz-transform: rotate(-360deg);
+    }
+}
+
+@-webkit-keyframes spin {
+    100% {
+        -webkit-transform: rotate(-360deg);
+    }
+}
+
+@keyframes spin {
+    100% {
+        -webkit-transform: rotate(-360deg);
+        transform: rotate(-360deg);
+    }
+}

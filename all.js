@@ -69,9 +69,12 @@ function all() {
     }
 
 
-    drawChart('PV1 ', 'PV2 ', 0, PV1, PV2, '#ch0', '#fc4', '#e6a', 1, 2, 200);
-    drawChart('Batp ', 'Batn ', 1, Batp, Batn, '#ch1', '#0f0', '#f00', 1, 2, 200);
-    drawChart('Load', 'ExtLd', 2, Ld, ELd, '#ch2', '#01f', '#e9f', 1, 2, 200);
+    // drawChart('PV1 ', 'PV2 ', 0, PV1, PV2, '#ch0', '#ff0', '#0ff', 1, 2, 200);
+    // drawChart('Batp ', 'Batn ', 1, Batp, Batn, '#ch1', '#0f0', '#f00', 1, 2, 200);
+    // drawChart('Load', 'ExtLd', 2, Ld, ELd, '#ch2', '#00f', '#f0f', 1, 2, 200);
+    drawChart('PV1 ', 'PV2 ', 0, PV1, PV2, '#ch0', 'rgba(255,255,0,0.75)', 'rgba(0,255,255,0.75)', 1, 2, 200);
+    drawChart('Batp ', 'Batn ', 1, Batp, Batn, '#ch1', 'rgba(0,255,0,0.75)', 'rgba(255,0,0,0.75)', 1, 2, 200);
+    drawChart('Load', 'ExtLd', 2, Ld, ELd, '#ch2', 'rgba(0,0,255,0.75)', 'rgba(255,0,255,0.75)', 1, 2, 200);
 
 /*
     for (i = 0; i < 15; i++) {
@@ -132,27 +135,27 @@ function all() {
             var h2 = (((dcmp(i, 1, d2)) / 180) * bt);
             var f2 = document.createElement('div');
             var f = document.createElement('div');
-            var f3 = document.createElement('div');
+            // var f3 = document.createElement('div');
             f.setAttribute('class', 'bar');
             f2.setAttribute('class', 'bar');
-            f3.setAttribute('class', 'bar');
+            // f3.setAttribute('class', 'bar');
             f.style.background = cl;
             f2.style.background = cl2;
-            f3.style.background = '#322';
+            // f3.style.background = '#322';
             f.style.width = b + 'px';
             f2.style.width = b + 'px';
-            f3.style.width = b + 'px';
+            // f3.style.width = b + 'px';
             f.style.height = h1 + '%';
             f2.style.height = h2 + '%';
-            f3.style.height = (100 - (h1 + h2)) + '%';
+            // f3.style.height = (100 - (h1 + h2)) + '%';
             f.style.left = l + 'px';
             f2.style.left = l + 'px';
-            f3.style.left = l + 'px';
+            // f3.style.left = l + 'px';
             f2.style.bottom = h1 + '%';
-            f3.style.bottom = h2 + h1 + '%';
+            // f3.style.bottom = h2 + h1 + '%';
             cht.appendChild(f);
             cht.appendChild(f2);
-            cht.appendChild(f3);
+            // cht.appendChild(f3);
             l += (b + p);
         }
         k = k * 3;
@@ -175,7 +178,8 @@ function all() {
                 n = m = '';
                 b0 = '1m';
             }
-            htm('g' + (k + i), '<V5> ' + b0 + '<v' + (k) + '>' + n + '</v' + (k) + '><v' + (k + 1) + '>' + m + '</v' + (k + 1) + '>' + sp + (dcmp((k + i) * 3, 3, gsbms) / ss).toFixed(dd) + sbms1[9] + '</V5>');
+            $("#graph-info-"+k+"-"+i).html((dcmp((k + i) * 3, 3, gsbms) / ss).toFixed(dd) + sbms1[9])
+            // htm('g' + (k + i), '<V5> ' + b0 + '<v' + (k) + '>' + n + '</v' + (k) + '><v' + (k + 1) + '>' + m + '</v' + (k + 1) + '>' + sp + (dcmp((k + i) * 3, 3, gsbms) / ss).toFixed(dd) + sbms1[9] + '</V5>');
         }
     }
 

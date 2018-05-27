@@ -95,7 +95,13 @@
 <body>
 <!--<img class="image" src="http://i.stack.imgur.com/pC1Tv.jpg" alt="" width="120" height="120">-->
 
-<div2 style='display: none;' id='id'></div2>
+
+<div id="useless">
+    <div4 id='mo0'>PV1 & PV2</div4>
+    <div4 id='mo2' style='left:240px;'>Battery</div4>
+    <div4 id='mo1' style='left:480px;'>Load</div4>
+    <div2 style='display: none;' id='id'></div2>
+</div>
 
 
 <div id="leftPanel">
@@ -150,9 +156,15 @@
             </div>
 
             <div id="status-leds">
-                <div id="led0">PV1 & PV2<div class="led led-yellow"></div></div>
-                <div id="led2">BATTERY<div class="led led-yellow"></div></div>
-                <div id="led1">LOAD<div class="led led-yellow"></div></div>
+                <div id="led0">PV1 & PV2
+                    <div class="led led-yellow"></div>
+                </div>
+                <div id="led2">BATTERY
+                    <div class="led led-yellow"></div>
+                </div>
+                <div id="led1">LOAD
+                    <div class="led led-yellow"></div>
+                </div>
             </div>
         </div>
     </div>
@@ -171,38 +183,118 @@
 </div>
 
 
-<div3>
-    <div2 style='left:5px;color:#ea8;top:22px;' id='d6'></div2>
-    <div2 style='right:530px;text-align: right;' id='d7'></div2>
-    <div2 style='right:430px;text-align: right;' id='d8'></div2>
-    <div2 style='right:220px;text-align: right;' id='d9'></div2>
-    <div2 style='right:10px;text-align: right;' id='d10'></div2>
-    <div5 style='width: 720px;top:0px;height:22px;text-align: right;' id='d11'></div5>
-    <div4 id='mo0'>PV1 & PV2</div4>
-    <div4 id='mo2' style='left:240px;'>Battery</div4>
-    <div4 id='mo1' style='left:480px;'>Load</div4>
-</div3>
-<div3>
-    <div style='background: #fb9;width: 720px;height:25px;'></div>
-    <div12h id='g0'></div12h>
-    <div1h id='g1'></div1h>
-    <div1m id='g2'></div1m>
-    <div id='ch0' style='width: 360px;height: 135px;'></div>
-</div3>
-<div3>
-    <div style='background: #fb9;width: 720px;height:25px;'></div>
-    <div12h id='g3'></div12h>
-    <div1h id='g4'></div1h>
-    <div1m id='g5'></div1m>
-    <div id='ch1' style='width: 360px;height: 135px;'></div>
-</div3>
-<div3>
-    <div style='background: #fb9;width: 720px;height:25px;'></div>
-    <div12h id='g6'></div12h>
-    <div1h id='g7'></div1h>
-    <div1m id='g8'></div1m>
-    <div id='ch2' style='width: 360px;height: 135px;'></div>
-</div3>
+<div class="test3" style="height: 145px;">
+    <div3>
+        <div2 style='left:5px;color:#ea8;top:22px;' id='d6'></div2>
+        <div2 style='right:530px;text-align: right;' id='d7'></div2>
+        <div2 style='right:430px;text-align: right;' id='d8'></div2>
+        <div2 style='right:220px;text-align: right;' id='d9'></div2>
+        <div2 style='right:10px;text-align: right;' id='d10'></div2>
+        <div5 style='width: 720px;top:0px;height:22px;text-align: right;' id='d11'></div5>
+    </div3>
+</div>
+
+<div class="test3">
+    <div class="graph-panel">
+        <div class="fan">
+            <img src="fan.png" />
+        </div>
+        <div class="legend">
+            <span class="laser laser-yellow"></span>
+            <br>
+            PV1
+        </div>
+        <br>
+        <div class="fan">
+            <img src="fan.png" />
+        </div>
+        <div class="legend">
+            <span class="laser laser-cyan"></span>
+            <br>PV2
+        </div>
+    </div>
+    <div3>
+        <!--<div style='background: #fb9;width: 720px;height:25px;'></div>-->
+        <div12h id='g0'></div12h>
+        <div1h id='g1'></div1h>
+        <div1m id='g2'></div1m>
+        <div id='ch0' style='width: 360px;height: 135px;'></div>
+        <div class="graph-info"><span id="graph-info-0-0"></span></div>
+        <div class="graph-info"><span id="graph-info-0-1"></span></div>
+        <div class="graph-info"><span id="graph-info-0-2"></span></div>
+        <span class="hours12">12h</span>
+        <span class="hour1">1h</span>
+        <span class="min1">1m</span>
+    </div3>
+</div>
+
+<div class="test3">
+    <div class="graph-panel">
+        <div class="fan">
+            <img src="fan.png" />
+        </div>
+        <div class="legend">
+            <span class="laser laser-green"></span>
+            <br>
+            Batp
+        </div>
+        <br>
+        <div class="fan">
+            <img src="fan.png" />
+        </div>
+        <div class="legend">
+            <span class="laser laser-red"></span>
+            <br>Batn
+        </div>
+    </div>
+    <div3>
+        <!--<div style='background: #fb9;width: 720px;height:25px;'></div>-->
+        <div12h id='g3'></div12h>
+        <div1h id='g4'></div1h>
+        <div1m id='g5'></div1m>
+        <div id='ch1' style='width: 360px;height: 135px;'></div>
+        <div class="graph-info"><span id="graph-info-3-0"></span></div>
+        <div class="graph-info"><span id="graph-info-3-1"></span></div>
+        <div class="graph-info"><span id="graph-info-3-2"></span></div>
+        <span class="hours12">12h</span>
+        <span class="hour1">1h</span>
+        <span class="min1">1m</span>
+    </div3>
+</div>
+
+<div class="test3">
+    <div class="graph-panel">
+        <div class="fan">
+            <img src="fan.png" />
+        </div>
+        <div class="legend">
+            <span class="laser laser-blue"></span>
+            <br>
+            Load
+        </div>
+        <br>
+        <div class="fan">
+            <img src="fan.png" />
+        </div>
+        <div class="legend">
+            <span class="laser laser-magenta"></span>
+            <br>ExtLd
+        </div>
+    </div>
+    <div3>
+        <!--<div style='background: #fb9;width: 720px;height:25px;'></div>-->
+        <div12h id='g6'></div12h>
+        <div1h id='g7'></div1h>
+        <div1m id='g8'></div1m>
+        <div id='ch2' style='width: 360px;height: 135px;'></div>
+        <div class="graph-info"><span id="graph-info-6-0"></span></div>
+        <div class="graph-info"><span id="graph-info-6-1"></span></div>
+        <div class="graph-info"><span id="graph-info-6-2"></span></div>
+        <span class="hours12">12h</span>
+        <span class="hour1">1h</span>
+        <span class="min1">1m</span>
+    </div3>
+</div>
 
 <script id='smain2'>
     all();
