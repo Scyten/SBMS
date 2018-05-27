@@ -2,76 +2,8 @@
 <html>
 <head>
     <!--
-        Son menu system shock 2?
-        animated en bas des panneaux. Regarder panneaux.jpg dans inspiration, faire bouger les points de gauche à droite (tester si lag avant, pendant regénération)
-
-        panneaux comme dans panneaux.jpg
-         barre de titre pareille
-         lignes comme une règle dedans
-        background panneaux comme dans advancedui__status_screen_by_z_design
-
-        Spinners
-        https://www.dreamstime.com/stock-illustration-d-digital-hud-element-motion-nice-d-rendering-your-futuristic-project-image73948651
-        https://www.dreamstime.com/stock-illustration-d-digital-hud-element-motion-nice-d-rendering-your-futuristic-project-image73948350
-        https://www.dreamstime.com/stock-illustration-d-digital-hud-element-motion-nice-d-rendering-your-futuristic-project-image73948434
-        https://www.dreamstime.com/stock-illustration-d-digital-hud-element-motion-nice-d-rendering-your-futuristic-project-image73948451
-
-        Interfaces
-        https://www.dreamstime.com/futuristic-user-menu-interface-hud-abstract-background-stock-illustration-image66155789
-        https://www.dreamstime.com/stock-illustration-space-game-asset-vector-elements-strategy-video-image70671245
-        https://www.dreamstime.com/stock-illustration-space-game-asset-vector-elements-video-image58652427
-
-        Border
-        https://www.w3.org/TR/css-backgrounds-3/#border-images
-        * https://csscreator.com/content/border-image
-        https://css-tricks.com/understanding-border-image/
-        generators
-            http://border-image.com/#%7B%22src%22%3A%22page-store%3A%2F%2F3%22%2C%22linkBorder%22%3Atrue%2C%22borderWidth%22%3A%5B0%2C0%2C0%2C0%5D%2C%22imageOffset%22%3A%5B219%2C851%2C180%2C712%5D%2C%22fill%22%3Afalse%2C%22setRepat%22%3Afalse%2C%22repeat%22%3A%5B%22repeat%22%2C%22repeat%22%5D%2C%22scaleFactor%22%3A0.40429564118761846%2C%22setRepeat%22%3Atrue%7D
-
-        GENERAL
-            Xmouse pointer
-            background dans chaque panneau, genre un outline d'une batterie
-        MAIN SCREEN (LEFT)
-            XBattery
-                Xbattery meter with color changing according to level
-            Cells
-                All the meters with colors changing according to level
-            Info
-                Add
-                    Date + heure plus secondes plus GMT
-                XType: 1
-                XCap: 200Ah
-                XStatus: 20480
-                SBMS Temp Int: 34.1℃
-                    avec thermomètre
-                Ext: -45.0℃
-                    avec thermomètre
-                XBattVoltage 13.357 V
-                XCell Δ 7 mV
-                Xstatus lights
-                    XPV1 & PV2
-                    Xbattery
-                    Xload
-                buttons
-                    XSave log
-                    XReset log
-                    Add
-                        rollover sur boutons "save log"
-                        toggle sound
-        GRAPH SCREEN (Right)
-            XStatistics
-            time graphs
-                lignes horizontales 25% 50% 75%
-                À droite graph, fan/turbine/etc qui tourne vitesse de la valeur du graph (ou valeur moyenne)
-                    plein de lignes horizontales semi-transparentes par dessus fan, un peu comme si c'était une télé?
 
 
-        TODO
-            value red battery (ex 0, or 40)
-            update data doit aussi updater load/battery/pvr1/pvr2 (activer/désactiver LED)
-            mettre LEDs plus bright?
-            Meter cells même style que la grosse batterie
-            LEDs temperature, allumées avec température min et max réglables
     -->
     <title>ElectroDacus</title>
     <meta http-equiv='cache-control' content='no-cache'>
@@ -96,7 +28,7 @@
     <div2 style='display: none;' id='id'></div2>
 </div>
 
-
+<div id="container">
 <div id="leftPanel">
     <div class="test2">
         <span class="section-title">Info</span>
@@ -175,7 +107,7 @@
 
 </div>
 
-
+    <div id="rightPanel">
 <div class="test3" style="height: 145px;">
     <div3>
         <div2 style='left:5px;color:#00a9da;top:22px;' id='d6'></div2>
@@ -287,6 +219,8 @@
         <span class="hour1">1h</span>
         <span class="min1">1m</span>
     </div3>
+</div>
+    </div>
 </div>
 
 <script>

@@ -21,14 +21,31 @@
 
 html {
     cursor: url(cursor.png), pointer;
+    height: 100%;
 }
 
 body {
     font-family: 'OCR A Extended';
+    height: 100%;
     background-image: url("grid_white_inverted.gif");
+    margin: 0;
     /*background-image: url("grid.gif");*/
     /*font-family: 'OCRAStdRegular';*/
 }
+
+#container{
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 
 /*#small-panel{*/
 /*position: relative;*/
@@ -44,6 +61,8 @@ body {
     /*background-repeat: no-repeat;*/
     width: 473px;
     /*height: 1116px;*/
+}
+#rightPanel {
 }
 
 #first, #second, #third {
@@ -131,6 +150,10 @@ meter {
     /*-moz-transform: rotate(-90deg);*/
     /*-o-transform: rotate(-90deg);*/
     /*transform: rotate(-90deg);*/
+}
+
+div{
+    float: none;
 }
 
 .test {
@@ -242,11 +265,11 @@ button {
     color: white;
     line-height: 135%;
     border-radius: 5px;
+    cursor: url(cursor.png), pointer;
 }
 
 button:hover {
     border-color: #008dff;
-    cursor: pointer;
     background-color: rgba(255, 255, 255, 0.1);
 }
 
@@ -301,6 +324,7 @@ button:hover {
 .fan {
     background: url(fan-contour.png);
     margin-bottom: 10px;
+    float: left;
 }
 
 .legend {
