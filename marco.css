@@ -19,6 +19,10 @@
     url('OCRAStdRegular.svg#OCRAStdRegular') format('svg');
 }
 
+html {
+    cursor: url(cursor.png), pointer;
+}
+
 body {
     font-family: 'OCR A Extended';
     background-image: url("grid_white_inverted.gif");
@@ -383,7 +387,7 @@ button:hover {
     }
     50% {
         background-color: #FF0;
-        box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #808002 0 -1px 9px, #FF0 0 -2px 12px;
+        box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #808002 0 -1px 9px, #FF0 0 -2px 15px;
     }
     to {
         background-color: #AA0;
