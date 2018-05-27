@@ -55,17 +55,37 @@ function all() {
     // document.getElementById('bat').value = SOC;
 
     if (sbms2[10] != 1) {
-        mos(0);
+        if (ledsStatus[0] != 0){
+            ledsStatus[0] = 0;
+            mos(0);
+        }
+    } else {
+        if (ledsStatus[0] != 1){
+            ledsStatus[0] = 1;
+            mos_activate(0);
+        }
     }
 
     if (sbms2[11] != 1) {
-        mos(1);
+        if (ledsStatus[1] != 0){
+            ledsStatus[1] = 0;
+            mos(1);
+        }
+    } else {
+        if (ledsStatus[1] != 1){
+            ledsStatus[1] = 1;
+            mos_activate(1);
+        }
     }
 
 
     function mos(rr) {
         // document.getElementById('mo' + rr).style.background = 'rgba(120,90,0,0.7)';
         $('#led'+rr).find('.led').css('animation', 'none');
+    }
+
+    function mos_activate(rr) {
+        $('#led'+rr).find('.led').css('animation', 'blinkYellow 2s infinite;');
     }
 
 
