@@ -381,9 +381,8 @@ button:hover {
 
 .legend {
     float: right;
-    padding-top: 10px;
-    padding-left: 5px;
-    line-height: 150%;
+    padding-left: 10px;
+    line-height: 140%;
 }
 
 .laser {

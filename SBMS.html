@@ -130,8 +130,8 @@
                 </div>
                 <div class="legend">
                     <span class="laser laser-yellow"></span>
-                    <br>
-                    PV1
+                    <br>PV1<br>
+                    <span id="avg0-0"></span>
                 </div>
                 <br>
                 <div class="fan">
@@ -139,7 +139,8 @@
                 </div>
                 <div class="legend">
                     <span class="laser laser-cyan"></span>
-                    <br>PV2
+                    <br>PV2<br>
+                    <span id="avg0-1"></span>
                 </div>
             </div>
             <div3>
@@ -164,8 +165,8 @@
                 </div>
                 <div class="legend">
                     <span class="laser laser-green"></span>
-                    <br>
-                    Batp
+                    <br>Batp<br>
+                    <span id="avg3-0"></span>
                 </div>
                 <br>
                 <div class="fan">
@@ -173,7 +174,8 @@
                 </div>
                 <div class="legend">
                     <span class="laser laser-red"></span>
-                    <br>Batn
+                    <br>Batn<br>
+                    <span id="avg3-1"></span>
                 </div>
             </div>
             <div3>
@@ -198,8 +200,8 @@
                 </div>
                 <div class="legend">
                     <span class="laser laser-blue"></span>
-                    <br>
-                    Load
+                    <br>Load<br>
+                    <span id="avg6-0"></span>
                 </div>
                 <br>
                 <div class="fan">
@@ -207,7 +209,8 @@
                 </div>
                 <div class="legend">
                     <span class="laser laser-magenta"></span>
-                    <br>ExtLd
+                    <br>ExLd<br>
+                    <span id="avg6-1"></span>
                 </div>
             </div>
             <div3>
@@ -249,7 +252,7 @@
         $('#d2, #d3, #d4, #d6, #d7, #d8, #d9, #d10, #d11, #d12, #mt1, #g0, #g1, #g2, #g3, #g4, #g5, #g6, #g7, #g8, #ch0, #ch1, #ch2').empty();
     }
 
-    function displayDateTime(){
+    function displayDateTime() {
         var date = new Date();
         var n = date.toDateString();
         var time = date.toLocaleTimeString();
@@ -267,6 +270,7 @@
 
     function setFanRotation(fanId1, fanId2) {
         var selector = "#fan" + fanId1 + "-" + fanId2;
+        $("#avg" + fanId1 + "-" + fanId2).html(averages[fanId1][fanId2] + "%");
 
         // If average value is 0, set random rotation
         if (averages[fanId1][fanId2] <= 0) {
