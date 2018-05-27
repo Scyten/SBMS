@@ -76,11 +76,6 @@
                 <div2 style='color:#030;font-size:200%;top:25px;left:90px;text-shadow: -2px -2px 2px #efc;'
                       id='SOC'></div2>
 
-                <div class="button-container">
-                    <button onclick="dload('sbms.txt', localStorage['sbms']);">SAVE</button>
-                    <button onclick="localStorage.removeItem('sbms');localStorage['sbms'] ='';">CLEAR</button>
-                </div>
-
                 <div id="status-leds">
                     <div id="led0">PV1 & PV2
                         <div class="led led-yellow"></div>
@@ -109,14 +104,22 @@
     </div>
 
     <div id="rightPanel">
-        <div class="test3" style="height: 145px;">
+        <div id="date-time" class="test3" style="height: 145px;">
+            <time id="date"></time>
+            <time id="time"></time>
+            <div class="button-container">
+                <button onclick="dload('sbms.txt', localStorage['sbms']);">SAVE LOG</button>
+                <button onclick="localStorage.removeItem('sbms');localStorage['sbms'] ='';">CLEAR LOG</button>
+            </div>
+        </div>
+        <div id="details" class="test3" style="height: 145px;">
             <div3>
-                <div2 style='left:5px;color:#00a9da;top:22px;' id='d6'></div2>
-                <div2 style='right:530px;text-align: right;' id='d7'></div2>
-                <div2 style='right:430px;text-align: right;' id='d8'></div2>
-                <div2 style='right:220px;text-align: right;' id='d9'></div2>
-                <div2 style='right:10px;text-align: right;' id='d10'></div2>
-                <div5 style='width: 720px;top:0px;height:22px;text-align: right;' id='d11'></div5>
+                <div2 style='color:#00a9da;top:22px;' id='d6'></div2>
+                <div2 id='d7'></div2>
+                <div2 id='d8'></div2>
+                <div2 id='d9'></div2>
+                <div2 id='d10'></div2>
+                <div5 style='width: 600px;top:0px;height:22px;' id='d11'></div5>
             </div3>
         </div>
 
@@ -246,6 +249,14 @@
         $('#d2, #d3, #d4, #d6, #d7, #d8, #d9, #d10, #d11, #d12, #mt1, #g0, #g1, #g2, #g3, #g4, #g5, #g6, #g7, #g8, #ch0, #ch1, #ch2').empty();
     }
 
+    function displayDateTime(){
+        var date = new Date();
+        var n = date.toDateString();
+        var time = date.toLocaleTimeString();
+        $('#date').html(n);
+        $('#time').html(time);
+    }
+
     function getHslColor(value) {
         value = value / 100.0;
         //value from 0 to 1
@@ -357,6 +368,8 @@
 <script>
     $(function () {
         startDataFetchTimer(0);
+        displayDateTime();
+        setInterval(displayDateTime, 1000);
     })
 </script>
 </body>

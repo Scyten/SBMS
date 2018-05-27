@@ -33,7 +33,7 @@ body {
     /*font-family: 'OCRAStdRegular';*/
 }
 
-#container{
+#container {
     height: 100%;
     padding: 0;
     margin: 0;
@@ -45,7 +45,6 @@ body {
     align-items: center;
     justify-content: center;
 }
-
 
 /*#small-panel{*/
 /*position: relative;*/
@@ -62,6 +61,7 @@ body {
     width: 473px;
     /*height: 1116px;*/
 }
+
 #rightPanel {
 }
 
@@ -118,13 +118,65 @@ body {
 
 #status-leds {
     position: absolute;
-    left: 320px;
+    left: 300px;
     display: block;
     float: none;
     white-space: nowrap;
     line-height: 150%;
     top: 0px;
     color: #00a9da;
+}
+
+#date-time, #details {
+    display: inline-block;
+}
+
+#date-time {
+    width: 185px;
+    color: #0f0;
+}
+
+#date, #time {
+    position: absolute;
+    text-align: center;
+    width: 100%;
+}
+
+#date {
+    /*top:50px;*/
+    font-size: 125%;
+}
+
+#time {
+    top: 30px;
+    font-size: 175%;
+}
+
+#details {
+    width: 600px;
+}
+
+#details div2 {
+    text-align: right;
+}
+
+#details div2:nth-of-type(1) {
+}
+
+#details div2:nth-of-type(2) {
+    left: 100px;
+}
+
+#details div2:nth-of-type(3) {
+    left: 200px;
+}
+
+#details div2:nth-of-type(4) {
+    left: 350px;
+}
+
+#details div2:nth-of-type(5) {
+    left: 500px;
 }
 
 #useless {
@@ -152,7 +204,7 @@ meter {
     /*transform: rotate(-90deg);*/
 }
 
-div{
+div {
     float: none;
 }
 
@@ -248,22 +300,21 @@ div{
 }
 
 .button-container {
-    width: 350px;
-    top: 5px;
-    left: 240px;
+    top: 70px;
+    left: 7px;
     position: absolute;
 }
 
 button {
     display: block;
-    display: block;
     border: solid 2px #36afff;
-    width: 70px;
+    width: 170px;
+    font-size: 100%;
     font-family: 'OCR A Extended';
     background-color: rgba(255, 255, 255, 0.2);
     margin-bottom: 10px;
     color: white;
-    line-height: 135%;
+    line-height: 150%;
     border-radius: 5px;
     cursor: url(cursor.png), pointer;
 }
@@ -271,6 +322,7 @@ button {
 button:hover {
     border-color: #008dff;
     background-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 10px #36afff;
 }
 
 .led {
@@ -446,6 +498,10 @@ div3 {
     /*left: -10px;*/
     color: white;
     font-weight: normal;
+}
+
+div5 {
+    background: rgba(22, 150, 255, 0.3);
 }
 
 .fan img {
