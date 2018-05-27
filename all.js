@@ -25,13 +25,13 @@ function all() {
         document.getElementById(id).innerHTML = s;
     };
 
-/*
-    function pad(n, width, z) {
-        z = z || '0';
-        n = n + '';
-        return n.length >= width ? n : new Array(width - n.length + 1).join(z) + n;
-    }
-*/
+    /*
+        function pad(n, width, z) {
+            z = z || '0';
+            n = n + '';
+            return n.length >= width ? n : new Array(width - n.length + 1).join(z) + n;
+        }
+    */
 
     function dcmp(p, s, d) {
         xx = 0;
@@ -50,29 +50,29 @@ function all() {
     SOC = dcmp(6, 2, sbms);
     // SOC = 80;
     htm('SOC', '<b>' + SOC + '%</b>');
-    $('#batt-fill').css('width', SOC+'%');
+    $('#batt-fill').css('width', SOC + '%');
     $('#batt-fill').css('background', getHslColor(SOC));
     // document.getElementById('bat').value = SOC;
 
     if (sbms2[10] != 1) {
-        if (ledsStatus[0] != 0){
+        if (ledsStatus[0] != 0) {
             ledsStatus[0] = 0;
             mos(0);
         }
     } else {
-        if (ledsStatus[0] != 1){
+        if (ledsStatus[0] != 1) {
             ledsStatus[0] = 1;
             mos_activate(0);
         }
     }
 
     if (sbms2[11] != 1) {
-        if (ledsStatus[1] != 0){
+        if (ledsStatus[1] != 0) {
             ledsStatus[1] = 0;
             mos(1);
         }
     } else {
-        if (ledsStatus[1] != 1){
+        if (ledsStatus[1] != 1) {
             ledsStatus[1] = 1;
             mos_activate(1);
         }
@@ -81,11 +81,11 @@ function all() {
 
     function mos(rr) {
         // document.getElementById('mo' + rr).style.background = 'rgba(120,90,0,0.7)';
-        $('#led'+rr).find('.led').css('animation', 'none');
+        $('#led' + rr).find('.led').css('animation', 'none');
     }
 
     function mos_activate(rr) {
-        $('#led'+rr).find('.led').css('animation', 'blinkYellow 2s infinite;');
+        $('#led' + rr).find('.led').css('animation', 'blinkYellow 2s infinite;');
     }
 
 
@@ -96,57 +96,57 @@ function all() {
     drawChart('Batp ', 'Batn ', 1, Batp, Batn, '#ch1', 'rgba(0,255,0,0.75)', 'rgba(255,0,0,0.75)', 1, 2, 200);
     drawChart('Load', 'ExtLd', 2, Ld, ELd, '#ch2', 'rgba(0,0,255,0.75)', 'rgba(255,0,255,0.75)', 1, 2, 200);
 
-/*
-    for (i = 0; i < 15; i++) {
-        setInterval(function () {
-            lg(lg1);
-        }, 500 * i);
-    }
-*/
+    /*
+        for (i = 0; i < 15; i++) {
+            setInterval(function () {
+                lg(lg1);
+            }, 500 * i);
+        }
+    */
 
-/*
-    function lg(d) {
-        var k = new Date();
-        var n = k.getSeconds();
-        if (n >= 40) {
-            n = n - 40
-        }
-        ;
-        if (n >= 20) {
-            n = n - 20
-        }
-        ;
-        if (n > 12) {
-            n = 12
-        }
-        ;
-        ctx.clearRect(0, 0, 70, 120);
-        for (y = 0; y < 9; y++) {
-            for (x = 0; x < 7; x++) {
-                var pix2 = ((pad(((d.charCodeAt(y + (12 * 9)) - 35).toString(2)), 6)).charCodeAt(x)) - 48;
-                var pix = ((pad(((d.charCodeAt(y + (n * 9)) - 35).toString(2)), 6)).charCodeAt(x)) - 48;
-                if (pix == 1) {
-                    col1 = '#be9';
-                    col2 = 'rgba(142,204,104,0.'
-                }
-                else if (pix2 == 1) {
-                    col1 = '#694';
-                    col2 = 'rgba(66,104,44,0.'
-                }
-                else {
-                    col1 = '#361';
-                    col2 = 'rgba(42,84,36,0.'
-                }
-                ctx.fillStyle = col1;
-                ctx.fillRect(x * 10, y * 10, 8, 8);
-                if (y >= 6) {
-                    ctx.fillStyle = col2 + (((y * 2) - 2) - 8) + ')';
-                    ctx.fillRect(x * 10, (17.3 - y) * 10, 8, 8);
+    /*
+        function lg(d) {
+            var k = new Date();
+            var n = k.getSeconds();
+            if (n >= 40) {
+                n = n - 40
+            }
+            ;
+            if (n >= 20) {
+                n = n - 20
+            }
+            ;
+            if (n > 12) {
+                n = 12
+            }
+            ;
+            ctx.clearRect(0, 0, 70, 120);
+            for (y = 0; y < 9; y++) {
+                for (x = 0; x < 7; x++) {
+                    var pix2 = ((pad(((d.charCodeAt(y + (12 * 9)) - 35).toString(2)), 6)).charCodeAt(x)) - 48;
+                    var pix = ((pad(((d.charCodeAt(y + (n * 9)) - 35).toString(2)), 6)).charCodeAt(x)) - 48;
+                    if (pix == 1) {
+                        col1 = '#be9';
+                        col2 = 'rgba(142,204,104,0.'
+                    }
+                    else if (pix2 == 1) {
+                        col1 = '#694';
+                        col2 = 'rgba(66,104,44,0.'
+                    }
+                    else {
+                        col1 = '#361';
+                        col2 = 'rgba(42,84,36,0.'
+                    }
+                    ctx.fillStyle = col1;
+                    ctx.fillRect(x * 10, y * 10, 8, 8);
+                    if (y >= 6) {
+                        ctx.fillStyle = col2 + (((y * 2) - 2) - 8) + ')';
+                        ctx.fillRect(x * 10, (17.3 - y) * 10, 8, 8);
+                    }
                 }
             }
         }
-    }
-*/
+    */
     function drawChart(n, m, k, d1, d2, sl, cl, cl2, p, b, bt) {
         var cht = document.querySelector(sl);
         var l = 0;
@@ -179,7 +179,7 @@ function all() {
             cht.appendChild(f2);
             // cht.appendChild(f3);
             l += (b + p);
-            if (i >= 180){
+            if (i >= 180) {
                 avg1 += h1;
                 avg2 += h2;
             }
@@ -194,14 +194,14 @@ function all() {
             ss = 10
         }
 
-        avg1 = Math.round(avg1/60);
-        avg2 = Math.round(avg2/60);
+        avg1 = Math.round(avg1 / 60);
+        avg2 = Math.round(avg2 / 60);
 
-        if (averages[k][0] != avg1){
+        if (averages[k][0] != avg1) {
             averages[k][0] = avg1;
             setFanRotation(k, 0);
         }
-        else if (averages[k][1] != avg2){
+        else if (averages[k][1] != avg2) {
             averages[k][1] = avg2;
             setFanRotation(k, 1);
         }
@@ -215,7 +215,7 @@ function all() {
                 n = m = '';
                 b0 = '1m';
             }
-            $("#graph-info-"+k+"-"+i).html((dcmp((k + i) * 3, 3, gsbms) / ss).toFixed(dd) + sbms1[9])
+            $("#graph-info-" + k + "-" + i).html((dcmp((k + i) * 3, 3, gsbms) / ss).toFixed(dd) + sbms1[9])
             // htm('g' + (k + i), '<V5> ' + b0 + '<v' + (k) + '>' + n + '</v' + (k) + '><v' + (k + 1) + '>' + m + '</v' + (k + 1) + '>' + sp + (dcmp((k + i) * 3, 3, gsbms) / ss).toFixed(dd) + sbms1[9] + '</V5>');
         }
     }

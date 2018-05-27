@@ -29,197 +29,198 @@
 </div>
 
 <div id="container">
-<div id="leftPanel">
-    <div class="test2">
-        <span class="section-title">Info</span>
-        <div id="first">
-            <div class="infoBar">
-                <span id="infoBarTitle1" class="infoBarTitle"></span>
-                <span id="infoBarValue1" class="infoBarValue"></span>
-            </div>
-            <div class="infoBar">
-                <span id="infoBarTitle2" class="infoBarTitle"></span>
-                <span id="infoBarValue2" class="infoBarValue"></span>
-            </div>
-            <div class="infoBar">
-                <span id="infoBarTitle3" class="infoBarTitle"></span>
-                <span id="infoBarValue3" class="infoBarValue"></span>
-            </div>
-            <div class="infoBar">
-                <span id="infoBarTitle4" class="infoBarTitle"></span>
-                <span id="infoBarValue4" class="infoBarValue"></span>
-            </div>
-            <div class="infoBar">
-                <span id="infoBarTitle5" class="infoBarTitle"></span>
-                <span id="infoBarValue5" class="infoBarValue"></span>
-            </div>
-            <div class="infoBar">
-                <span id="infoBarTitle6" class="infoBarTitle"></span>
-                <span id="infoBarValue6" class="infoBarValue"></span>
-            </div>
-            <div class="infoBar">
-                <span id="infoBarTitle7" class="infoBarTitle"></span>
-                <span id="infoBarValue7" class="infoBarValue"></span>
-            </div>
-            <div2 style='left:5px;top:92px;color:#a99;line-height: 25px;' id='d12'></div2>
-        </div>
-    </div>
-    <div class="test2">
-        <span class="section-title">Status</span>
-        <div id="second">
-            <!--<meter id='bat' style='height: 40px; width: 220px; top: 9px;' min='0' low='20' max='100'></meter>-->
-            <div id='batt-container'>
-                <div id="batt-gloss"></div>
-                <div id="batt-fill"></div>
-            </div>
-            <meter style='height: 20px; left: 221px; top:23px; width: 5px;' min='2' max='8' value='0'></meter>
-            <div2 style='color:#030;font-size:200%;top:25px;left:90px;text-shadow: -2px -2px 2px #efc;' id='SOC'></div2>
-
-            <div class="button-container">
-                <button onclick="dload('sbms.txt', localStorage['sbms']);">SAVE</button>
-                <button onclick="localStorage.removeItem('sbms');localStorage['sbms'] ='';">CLEAR</button>
-            </div>
-
-            <div id="status-leds">
-                <div id="led0">PV1 & PV2
-                    <div class="led led-yellow"></div>
+    <div id="leftPanel">
+        <div class="test2">
+            <span class="section-title">Info</span>
+            <div id="first">
+                <div class="infoBar">
+                    <span id="infoBarTitle1" class="infoBarTitle"></span>
+                    <span id="infoBarValue1" class="infoBarValue"></span>
                 </div>
-                <div id="led2">BATTERY
-                    <div class="led led-yellow"></div>
+                <div class="infoBar">
+                    <span id="infoBarTitle2" class="infoBarTitle"></span>
+                    <span id="infoBarValue2" class="infoBarValue"></span>
                 </div>
-                <div id="led1">LOAD
-                    <div class="led led-yellow"></div>
+                <div class="infoBar">
+                    <span id="infoBarTitle3" class="infoBarTitle"></span>
+                    <span id="infoBarValue3" class="infoBarValue"></span>
                 </div>
+                <div class="infoBar">
+                    <span id="infoBarTitle4" class="infoBarTitle"></span>
+                    <span id="infoBarValue4" class="infoBarValue"></span>
+                </div>
+                <div class="infoBar">
+                    <span id="infoBarTitle5" class="infoBarTitle"></span>
+                    <span id="infoBarValue5" class="infoBarValue"></span>
+                </div>
+                <div class="infoBar">
+                    <span id="infoBarTitle6" class="infoBarTitle"></span>
+                    <span id="infoBarValue6" class="infoBarValue"></span>
+                </div>
+                <div class="infoBar">
+                    <span id="infoBarTitle7" class="infoBarTitle"></span>
+                    <span id="infoBarValue7" class="infoBarValue"></span>
+                </div>
+                <div2 style='left:5px;top:92px;color:#a99;line-height: 25px;' id='d12'></div2>
             </div>
         </div>
-    </div>
-    <div class="test2">
-        <span class="section-title">Cells</span>
-        <div id="third">
-            <div class="largeBar">
-                <div2 style='left:20px; color:#d00;' id='d2'></div2>
-                <div2 style='left:115px; color: #00a9da;' id='d3'></div2>
-                <div2 style='left:165px;color:#888;' id='d4'></div2>
-                <div2 style='left:200px;' id='mt1'></div2>
+        <div class="test2">
+            <span class="section-title">Status</span>
+            <div id="second">
+                <!--<meter id='bat' style='height: 40px; width: 220px; top: 9px;' min='0' low='20' max='100'></meter>-->
+                <div id='batt-container'>
+                    <div id="batt-gloss"></div>
+                    <div id="batt-fill"></div>
+                </div>
+                <meter style='height: 20px; left: 221px; top:23px; width: 5px;' min='2' max='8' value='0'></meter>
+                <div2 style='color:#030;font-size:200%;top:25px;left:90px;text-shadow: -2px -2px 2px #efc;'
+                      id='SOC'></div2>
+
+                <div class="button-container">
+                    <button onclick="dload('sbms.txt', localStorage['sbms']);">SAVE</button>
+                    <button onclick="localStorage.removeItem('sbms');localStorage['sbms'] ='';">CLEAR</button>
+                </div>
+
+                <div id="status-leds">
+                    <div id="led0">PV1 & PV2
+                        <div class="led led-yellow"></div>
+                    </div>
+                    <div id="led2">BATTERY
+                        <div class="led led-yellow"></div>
+                    </div>
+                    <div id="led1">LOAD
+                        <div class="led led-yellow"></div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
+        <div class="test2">
+            <span class="section-title">Cells</span>
+            <div id="third">
+                <div class="largeBar">
+                    <div2 style='left:20px; color:#d00;' id='d2'></div2>
+                    <div2 style='left:115px; color: #00a9da;' id='d3'></div2>
+                    <div2 style='left:165px;color:#888;' id='d4'></div2>
+                    <div2 style='left:200px;' id='mt1'></div2>
+                </div>
+            </div>
+        </div>
 
-</div>
+    </div>
 
     <div id="rightPanel">
-<div class="test3" style="height: 145px;">
-    <div3>
-        <div2 style='left:5px;color:#00a9da;top:22px;' id='d6'></div2>
-        <div2 style='right:530px;text-align: right;' id='d7'></div2>
-        <div2 style='right:430px;text-align: right;' id='d8'></div2>
-        <div2 style='right:220px;text-align: right;' id='d9'></div2>
-        <div2 style='right:10px;text-align: right;' id='d10'></div2>
-        <div5 style='width: 720px;top:0px;height:22px;text-align: right;' id='d11'></div5>
-    </div3>
-</div>
+        <div class="test3" style="height: 145px;">
+            <div3>
+                <div2 style='left:5px;color:#00a9da;top:22px;' id='d6'></div2>
+                <div2 style='right:530px;text-align: right;' id='d7'></div2>
+                <div2 style='right:430px;text-align: right;' id='d8'></div2>
+                <div2 style='right:220px;text-align: right;' id='d9'></div2>
+                <div2 style='right:10px;text-align: right;' id='d10'></div2>
+                <div5 style='width: 720px;top:0px;height:22px;text-align: right;' id='d11'></div5>
+            </div3>
+        </div>
 
-<div class="test3">
-    <div class="graph-panel">
-        <div class="fan">
-            <img id="fan0-0" src="fan.png" />
+        <div class="test3">
+            <div class="graph-panel">
+                <div class="fan">
+                    <img id="fan0-0" src="fan.png"/>
+                </div>
+                <div class="legend">
+                    <span class="laser laser-yellow"></span>
+                    <br>
+                    PV1
+                </div>
+                <br>
+                <div class="fan">
+                    <img id="fan0-1" src="fan.png"/>
+                </div>
+                <div class="legend">
+                    <span class="laser laser-cyan"></span>
+                    <br>PV2
+                </div>
+            </div>
+            <div3>
+                <!--<div style='background: #fb9;width: 720px;height:25px;'></div>-->
+                <div12h id='g0'></div12h>
+                <div1h id='g1'></div1h>
+                <div1m id='g2'></div1m>
+                <div id='ch0' style='width: 360px;height: 135px;'></div>
+                <div class="graph-info first"><span id="graph-info-0-0"></span></div>
+                <div class="graph-info second"><span id="graph-info-0-1"></span></div>
+                <div class="graph-info third"><span id="graph-info-0-2"></span></div>
+                <span class="hours12">12h</span>
+                <span class="hour1">1h</span>
+                <span class="min1">1m</span>
+            </div3>
         </div>
-        <div class="legend">
-            <span class="laser laser-yellow"></span>
-            <br>
-            PV1
-        </div>
-        <br>
-        <div class="fan">
-            <img id="fan0-1" src="fan.png" />
-        </div>
-        <div class="legend">
-            <span class="laser laser-cyan"></span>
-            <br>PV2
-        </div>
-    </div>
-    <div3>
-        <!--<div style='background: #fb9;width: 720px;height:25px;'></div>-->
-        <div12h id='g0'></div12h>
-        <div1h id='g1'></div1h>
-        <div1m id='g2'></div1m>
-        <div id='ch0' style='width: 360px;height: 135px;'></div>
-        <div class="graph-info first"><span id="graph-info-0-0"></span></div>
-        <div class="graph-info second"><span id="graph-info-0-1"></span></div>
-        <div class="graph-info third"><span id="graph-info-0-2"></span></div>
-        <span class="hours12">12h</span>
-        <span class="hour1">1h</span>
-        <span class="min1">1m</span>
-    </div3>
-</div>
 
-<div class="test3">
-    <div class="graph-panel">
-        <div class="fan">
-            <img id="fan3-0" src="fan.png" />
+        <div class="test3">
+            <div class="graph-panel">
+                <div class="fan">
+                    <img id="fan3-0" src="fan.png"/>
+                </div>
+                <div class="legend">
+                    <span class="laser laser-green"></span>
+                    <br>
+                    Batp
+                </div>
+                <br>
+                <div class="fan">
+                    <img id="fan3-1" src="fan.png"/>
+                </div>
+                <div class="legend">
+                    <span class="laser laser-red"></span>
+                    <br>Batn
+                </div>
+            </div>
+            <div3>
+                <!--<div style='background: #fb9;width: 720px;height:25px;'></div>-->
+                <div12h id='g3'></div12h>
+                <div1h id='g4'></div1h>
+                <div1m id='g5'></div1m>
+                <div id='ch1' style='width: 360px;height: 135px;'></div>
+                <div class="graph-info first"><span id="graph-info-3-0"></span></div>
+                <div class="graph-info second"><span id="graph-info-3-1"></span></div>
+                <div class="graph-info third"><span id="graph-info-3-2"></span></div>
+                <span class="hours12">12h</span>
+                <span class="hour1">1h</span>
+                <span class="min1">1m</span>
+            </div3>
         </div>
-        <div class="legend">
-            <span class="laser laser-green"></span>
-            <br>
-            Batp
-        </div>
-        <br>
-        <div class="fan">
-            <img id="fan3-1" src="fan.png" />
-        </div>
-        <div class="legend">
-            <span class="laser laser-red"></span>
-            <br>Batn
-        </div>
-    </div>
-    <div3>
-        <!--<div style='background: #fb9;width: 720px;height:25px;'></div>-->
-        <div12h id='g3'></div12h>
-        <div1h id='g4'></div1h>
-        <div1m id='g5'></div1m>
-        <div id='ch1' style='width: 360px;height: 135px;'></div>
-        <div class="graph-info first"><span id="graph-info-3-0"></span></div>
-        <div class="graph-info second"><span id="graph-info-3-1"></span></div>
-        <div class="graph-info third"><span id="graph-info-3-2"></span></div>
-        <span class="hours12">12h</span>
-        <span class="hour1">1h</span>
-        <span class="min1">1m</span>
-    </div3>
-</div>
 
-<div class="test3">
-    <div class="graph-panel">
-        <div class="fan">
-            <img id="fan6-0" src="fan.png" />
+        <div class="test3">
+            <div class="graph-panel">
+                <div class="fan">
+                    <img id="fan6-0" src="fan.png"/>
+                </div>
+                <div class="legend">
+                    <span class="laser laser-blue"></span>
+                    <br>
+                    Load
+                </div>
+                <br>
+                <div class="fan">
+                    <img id="fan6-1" src="fan.png"/>
+                </div>
+                <div class="legend">
+                    <span class="laser laser-magenta"></span>
+                    <br>ExtLd
+                </div>
+            </div>
+            <div3>
+                <!--<div style='background: #fb9;width: 720px;height:25px;'></div>-->
+                <div12h id='g6'></div12h>
+                <div1h id='g7'></div1h>
+                <div1m id='g8'></div1m>
+                <div id='ch2' style='width: 360px;height: 135px;'></div>
+                <div class="graph-info first"><span id="graph-info-6-0"></span></div>
+                <div class="graph-info second"><span id="graph-info-6-1"></span></div>
+                <div class="graph-info third"><span id="graph-info-6-2"></span></div>
+                <span class="hours12">12h</span>
+                <span class="hour1">1h</span>
+                <span class="min1">1m</span>
+            </div3>
         </div>
-        <div class="legend">
-            <span class="laser laser-blue"></span>
-            <br>
-            Load
-        </div>
-        <br>
-        <div class="fan">
-            <img id="fan6-1" src="fan.png" />
-        </div>
-        <div class="legend">
-            <span class="laser laser-magenta"></span>
-            <br>ExtLd
-        </div>
-    </div>
-    <div3>
-        <!--<div style='background: #fb9;width: 720px;height:25px;'></div>-->
-        <div12h id='g6'></div12h>
-        <div1h id='g7'></div1h>
-        <div1m id='g8'></div1m>
-        <div id='ch2' style='width: 360px;height: 135px;'></div>
-        <div class="graph-info first"><span id="graph-info-6-0"></span></div>
-        <div class="graph-info second"><span id="graph-info-6-1"></span></div>
-        <div class="graph-info third"><span id="graph-info-6-2"></span></div>
-        <span class="hours12">12h</span>
-        <span class="hour1">1h</span>
-        <span class="min1">1m</span>
-    </div3>
-</div>
     </div>
 </div>
 
@@ -232,14 +233,14 @@
     var DATA_INTERVAL_ERROR = 10000;
     var LOCAL_DEBUG = true;
     var counter = 1;
-    var ledsStatus = [1,1,1];
+    var ledsStatus = [1, 1, 1];
     var FAN_MAX_SPEED = 0.5;
     var FAN_MIN_SPEED = 1.5;
     var FAN_DELTA = FAN_MIN_SPEED - FAN_MAX_SPEED;
     var averages = [];
-    averages[0] = [-1,-1];
-    averages[3] = [-1,-1];
-    averages[6] = [-1,-1];
+    averages[0] = [-1, -1];
+    averages[3] = [-1, -1];
+    averages[6] = [-1, -1];
 
     function reset() {
         $('#d2, #d3, #d4, #d6, #d7, #d8, #d9, #d10, #d11, #d12, #mt1, #g0, #g1, #g2, #g3, #g4, #g5, #g6, #g7, #g8, #ch0, #ch1, #ch2').empty();
@@ -253,16 +254,16 @@
         // return ["hsl(", hue, ",100%,50%)"].join("");
     }
 
-    function setFanRotation(fanId1, fanId2){
-        var selector = "#fan"+fanId1+"-"+fanId2;
+    function setFanRotation(fanId1, fanId2) {
+        var selector = "#fan" + fanId1 + "-" + fanId2;
 
         // If average value is 0, set random rotation
-        if (averages[fanId1][fanId2] <= 0){
-            $(selector).css('transform', 'rotate(' + Math.random()*120 + 'deg)');
+        if (averages[fanId1][fanId2] <= 0) {
+            $(selector).css('transform', 'rotate(' + Math.random() * 120 + 'deg)');
             $(selector).css('-webkit-animation', 'none').css('-moz-animation', 'none').css('animation', 'none');
         }
-        else{
-            var css = "spin "+(((100-averages[fanId1][fanId2])/100*FAN_DELTA)+FAN_MAX_SPEED)+"s linear infinite";
+        else {
+            var css = "spin " + (((100 - averages[fanId1][fanId2]) / 100 * FAN_DELTA) + FAN_MAX_SPEED) + "s linear infinite";
             $(selector).css('-webkit-animation', css).css('-moz-animation', css).css('animation', css);
         }
     }

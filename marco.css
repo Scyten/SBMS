@@ -445,6 +445,7 @@ div3 {
     top: -5px;
     /*left: -10px;*/
     color: white;
+    font-weight: normal;
 }
 
 .fan img {

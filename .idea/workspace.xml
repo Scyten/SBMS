@@ -4,8 +4,7 @@
     <list default="true" id="3e77ee9e-7f72-4b31-a975-26340de3180a" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/SBMS.html" beforeDir="false" afterPath="$PROJECT_DIR$/SBMS.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/all.js" beforeDir="false" afterPath="$PROJECT_DIR$/all.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/infobar-simple.png" beforeDir="false" afterPath="$PROJECT_DIR$/infobar-simple.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/Vectors.psd" beforeDir="false" afterPath="$PROJECT_DIR$/resources/Vectors.psd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/marco.css" beforeDir="false" afterPath="$PROJECT_DIR$/marco.css" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -19,8 +18,8 @@
       <file leaf-file-name="SBMS.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/SBMS.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="234" column="18" selection-start-line="234" selection-start-column="8" selection-end-line="234" selection-end-column="18" />
+            <state relative-caret-position="357">
+              <caret line="115" column="29" selection-start-line="115" selection-start-column="29" selection-end-line="115" selection-end-column="29" />
               <folding>
                 <element signature="n#style#0;n#div4#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div4#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -40,8 +39,8 @@
       <file leaf-file-name="marco.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/marco.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="152">
-              <caret line="379" column="16" selection-start-line="379" selection-start-column="16" selection-end-line="379" selection-end-column="16" />
+            <state relative-caret-position="509">
+              <caret line="447" column="24" selection-start-line="447" selection-start-column="24" selection-end-line="447" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -67,8 +66,8 @@
       <file leaf-file-name="all.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/all.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="186">
-              <caret line="55" lean-forward="true" selection-start-line="55" selection-end-line="55" />
+            <state relative-caret-position="203">
+              <caret line="56" column="25" selection-start-line="56" selection-start-column="25" selection-end-line="56" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -100,7 +99,6 @@
       <find>div4</find>
       <find>mo</find>
       <find>all</find>
-      <find>div3</find>
       <find>v5</find>
       <find>bar</find>
       <find>gra</find>
@@ -114,6 +112,7 @@
       <find>mos</find>
       <find>counter</find>
       <find>led</find>
+      <find>div3</find>
       <find>image</find>
     </findStrings>
   </component>
@@ -211,12 +210,12 @@
       <workItem from="1526173131497" duration="4456000" />
       <workItem from="1526349074094" duration="5123000" />
       <workItem from="1526836892126" duration="31891000" />
-      <workItem from="1527115908726" duration="39683000" />
+      <workItem from="1527115908726" duration="40233000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="122672000" />
+    <option name="totallyTimeSpent" value="123222000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -643,13 +642,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/marco.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="379" column="16" selection-start-line="379" selection-start-column="16" selection-end-line="379" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/SBMS_original.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-60">
@@ -657,10 +649,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/marco.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="509">
+          <caret line="447" column="24" selection-start-line="447" selection-start-column="24" selection-end-line="447" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/SBMS.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="234" column="18" selection-start-line="234" selection-start-column="8" selection-end-line="234" selection-end-column="18" />
+        <state relative-caret-position="357">
+          <caret line="115" column="29" selection-start-line="115" selection-start-column="29" selection-end-line="115" selection-end-column="29" />
           <folding>
             <element signature="n#style#0;n#div4#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div4#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -678,8 +677,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/all.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="55" lean-forward="true" selection-start-line="55" selection-end-line="55" />
+        <state relative-caret-position="203">
+          <caret line="56" column="25" selection-start-line="56" selection-start-column="25" selection-end-line="56" selection-end-column="25" />
         </state>
       </provider>
     </entry>
