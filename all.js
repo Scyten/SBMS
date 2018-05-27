@@ -176,8 +176,6 @@ function all() {
 
         avg1 = Math.round(avg1/60);
         avg2 = Math.round(avg2/60);
-        avg1=0.00000;
-        avg2=90;
 
         if (averages[k][0] != avg1){
             averages[k][0] = avg1;

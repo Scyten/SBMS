@@ -327,11 +327,9 @@
 
     function setFanRotation(fanId1, fanId2){
         var selector = "#fan"+fanId1+"-"+fanId2;
-        console.log(averages[fanId1][fanId2]);
-
+        
         // If average value is 0, set random rotation
         if (averages[fanId1][fanId2] <= 0){
-            console.log('SDFSD');
             $(selector).css('transform', 'rotate(' + Math.random()*120 + 'deg)');
             $(selector).css('-webkit-animation', 'none').css('-moz-animation', 'none').css('animation', 'none');
         }
