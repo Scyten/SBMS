@@ -68,9 +68,9 @@
             <span class="section-title">Status</span>
             <div id="second">
                 <!--<meter id='bat' style='height: 40px; width: 220px; top: 9px;' min='0' low='20' max='100'></meter>-->
-                <div id='batt-container'>
-                    <div id="batt-gloss"></div>
-                    <div id="batt-fill"></div>
+                <div class="battery-container battery">
+                    <div class="meter-gloss"></div>
+                    <div id="battery" class="meter-fill"></div>
                 </div>
                 <meter style='height: 20px; left: 221px; top:23px; width: 5px;' min='2' max='8' value='0'></meter>
                 <div2 style='color:#030;font-size:200%;top:25px;left:90px;text-shadow: -2px -2px 2px #efc;'
@@ -92,11 +92,77 @@
         <div class="test2">
             <span class="section-title">Cells</span>
             <div id="third">
+                <!--
+                <div class="meter-container battery">
+                    <div class="meter-gloss"></div>
+                    <div id="battery" class="meter-fill"></div>
+                </div>
+                -->
                 <div class="largeBar">
-                    <div2 style='left:20px; color:#d00;' id='d2'></div2>
-                    <div2 style='left:115px; color: #00a9da;' id='d3'></div2>
-                    <div2 style='left:165px;color:#888;' id='d4'></div2>
-                    <div2 style='left:200px;' id='mt1'></div2>
+                    <div2 style='left:20px; color:#d00;' id='d2'>
+                        <span>Cell 1</span>
+                        <br><span>Cell 2</span>
+                        <br><span>Cell 3</span>
+                        <br><span>Cell 4</span>
+                        <br><span>Cell 5</span>
+                        <br><span>Cell 6</span>
+                        <br><span>Cell 7</span>
+                        <br><span>Cell 8</span>
+                    </div2>
+                    <div2 style='left:115px; color: #00a9da;' id='d3'>
+                        <span></span>
+                        <br><span></span>
+                        <br><span></span>
+                        <br><span></span>
+                        <br><span></span>
+                        <br><span></span>
+                        <br><span></span>
+                        <br><span></span>
+                    </div2>
+                    <div2 style='left:165px;color:#888;' id='d4'>
+                        <txt>V</txt>
+                        <br><span>V</span>
+                        <br><span>V</span>
+                        <br><span>V</span>
+                        <br><span>V</span>
+                        <br><span>V</span>
+                        <br><span>V</span>
+                        <br><span>V</span>
+                    </div2>
+                    <div2 style='left:200px;' id='mt1'>
+                        <div class="cell-container cell">
+                            <div class="meter-gloss"></div>
+                            <div id="cell0" class="meter-fill"></div>
+                        </div>
+                        <div class="cell-container cell">
+                            <div class="meter-gloss"></div>
+                            <div id="cell1" class="meter-fill"></div>
+                        </div>
+                        <div class="cell-container cell">
+                            <div class="meter-gloss"></div>
+                            <div id="cell2" class="meter-fill"></div>
+                        </div>
+                        <div class="cell-container cell">
+                            <div class="meter-gloss"></div>
+                            <div id="cell3" class="meter-fill"></div>
+                        </div>
+                        <div class="cell-container cell">
+                            <div class="meter-gloss"></div>
+                            <div id="cell4" class="meter-fill"></div>
+                        </div>
+                        <div class="cell-container cell">
+                            <div class="meter-gloss"></div>
+                            <div id="cell5" class="meter-fill"></div>
+                        </div>
+                        <div class="cell-container cell">
+                            <div class="meter-gloss"></div>
+                            <div id="cell6" class="meter-fill"></div>
+                        </div>
+                        <div class="cell-container cell">
+                            <div class="meter-gloss"></div>
+                            <div id="cell7" class="meter-fill"></div>
+                        </div>
+                    </div2>
                 </div>
             </div>
         </div>
@@ -249,7 +315,8 @@
     averages[6] = [-1, -1];
 
     function reset() {
-        $('#d2, #d3, #d4, #d6, #d7, #d8, #d9, #d10, #d11, #d12, #mt1, #g0, #g1, #g2, #g3, #g4, #g5, #g6, #g7, #g8, #ch0, #ch1, #ch2').empty();
+        $('#d6, #d7, #d8, #d9, #d10, #d11, #d12, #g0, #g1, #g2, #g3, #g4, #g5, #g6, #g7, #g8, #ch0, #ch1, #ch2').empty();
+        // $('#d2, #d3, #d4, #d6, #d7, #d8, #d9, #d10, #d11, #d12, #mt1, #g0, #g1, #g2, #g3, #g4, #g5, #g6, #g7, #g8, #ch0, #ch1, #ch2').empty();
     }
 
     function displayDateTime() {
@@ -264,6 +331,7 @@
         value = value / 100.0;
         //value from 0 to 1
         var hue = (value * 120).toString(10);
+        console.log('hue', hue);
         return ['linear-gradient(hsl(', hue, ',90%,80%), hsl(', hue, ',90%,50%), hsl(', hue, ',90%,50%), hsl(', hue, ',90%,30%))'].join("");
         // return ["hsl(", hue, ",100%,50%)"].join("");
     }

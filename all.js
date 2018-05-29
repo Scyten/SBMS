@@ -25,13 +25,6 @@ function all() {
         document.getElementById(id).innerHTML = s;
     };
 
-    /*
-        function pad(n, width, z) {
-            z = z || '0';
-            n = n + '';
-            return n.length >= width ? n : new Array(width - n.length + 1).join(z) + n;
-        }
-    */
 
     function dcmp(p, s, d) {
         xx = 0;
@@ -50,8 +43,8 @@ function all() {
     SOC = dcmp(6, 2, sbms);
     // SOC = 80;
     htm('SOC', '<b>' + SOC + '%</b>');
-    $('#batt-fill').css('width', SOC + '%');
-    $('#batt-fill').css('background', getHslColor(SOC));
+    $('#battery').css('width', SOC + '%');
+    $('#battery').css('background', getHslColor(SOC));
     // document.getElementById('bat').value = SOC;
 
     if (sbms2[10] != 1) {
@@ -78,7 +71,6 @@ function all() {
         }
     }
 
-
     function mos(rr) {
         // document.getElementById('mo' + rr).style.background = 'rgba(120,90,0,0.7)';
         $('#led' + rr).find('.led').css('animation', 'none');
@@ -88,65 +80,10 @@ function all() {
         $('#led' + rr).find('.led').css('animation', 'blinkYellow 2s infinite;');
     }
 
-
-    // drawChart('PV1 ', 'PV2 ', 0, PV1, PV2, '#ch0', '#ff0', '#0ff', 1, 2, 200);
-    // drawChart('Batp ', 'Batn ', 1, Batp, Batn, '#ch1', '#0f0', '#f00', 1, 2, 200);
-    // drawChart('Load', 'ExtLd', 2, Ld, ELd, '#ch2', '#00f', '#f0f', 1, 2, 200);
     drawChart('PV1 ', 'PV2 ', 0, PV1, PV2, '#ch0', 'rgba(255,255,0,0.75)', 'rgba(0,255,255,0.75)', 1, 2, 200);
     drawChart('Batp ', 'Batn ', 1, Batp, Batn, '#ch1', 'rgba(0,255,0,0.75)', 'rgba(255,0,0,0.75)', 1, 2, 200);
     drawChart('Load', 'ExtLd', 2, Ld, ELd, '#ch2', 'rgba(0,0,255,0.75)', 'rgba(255,0,255,0.75)', 1, 2, 200);
 
-    /*
-        for (i = 0; i < 15; i++) {
-            setInterval(function () {
-                lg(lg1);
-            }, 500 * i);
-        }
-    */
-
-    /*
-        function lg(d) {
-            var k = new Date();
-            var n = k.getSeconds();
-            if (n >= 40) {
-                n = n - 40
-            }
-            ;
-            if (n >= 20) {
-                n = n - 20
-            }
-            ;
-            if (n > 12) {
-                n = 12
-            }
-            ;
-            ctx.clearRect(0, 0, 70, 120);
-            for (y = 0; y < 9; y++) {
-                for (x = 0; x < 7; x++) {
-                    var pix2 = ((pad(((d.charCodeAt(y + (12 * 9)) - 35).toString(2)), 6)).charCodeAt(x)) - 48;
-                    var pix = ((pad(((d.charCodeAt(y + (n * 9)) - 35).toString(2)), 6)).charCodeAt(x)) - 48;
-                    if (pix == 1) {
-                        col1 = '#be9';
-                        col2 = 'rgba(142,204,104,0.'
-                    }
-                    else if (pix2 == 1) {
-                        col1 = '#694';
-                        col2 = 'rgba(66,104,44,0.'
-                    }
-                    else {
-                        col1 = '#361';
-                        col2 = 'rgba(42,84,36,0.'
-                    }
-                    ctx.fillStyle = col1;
-                    ctx.fillRect(x * 10, y * 10, 8, 8);
-                    if (y >= 6) {
-                        ctx.fillStyle = col2 + (((y * 2) - 2) - 8) + ')';
-                        ctx.fillRect(x * 10, (17.3 - y) * 10, 8, 8);
-                    }
-                }
-            }
-        }
-    */
     function drawChart(n, m, k, d1, d2, sl, cl, cl2, p, b, bt) {
         var cht = document.querySelector(sl);
         var l = 0;
@@ -228,43 +165,33 @@ function all() {
         for (i = 0; i < 20; i++) {
             w[i] = '';
         }
+
         var bv = pv3 = sv = max1 = min1 = 0;
         for (x1 = 0; x1 < 8; x1++) {
-            var n = n1 = '';
             var cv = dcmp((x1 * 2) + 8, 2, sbms) / 1000;
+            var selector = "span:eq("+x1+")";
             if (sbms2[9] == x1 + 1) {
-                min1 = cv;
-                n = '<mn1>';
-                n1 = '</mn1>';
+                $("#d2, #d3").find(selector).removeClass().addClass('mn1');
             }
-            ;
+
             if (sbms2[8] == x1 + 1) {
-                max1 = cv;
-                n = '<mx1>';
-                n1 = '</mx1>';
+                $("#d2, #d3").find(selector).removeClass().addClass('mx1');
             }
-            ;
-            w[0] += n + 'Cell ' + (x1 + 1) + n1 + r;
-            w[1] += n + cv.toFixed(3) + n1 + r;
-            if (sbms2[x1] != 1) {
-                w[2] += '<txt>V</txt>' + r;
-            }
-            else {
-                w[2] += '<lt><</lt>' + r;
-            }
-            ;
+
+            $("#d3").find(selector).html(cv.toFixed(3));
+            $("#d4").find(selector).html(sbms2[x1] != 1? "V": "<");
+
             bv += cv;
-            var mt = document.querySelector(m1);
-            var x = document.createElement('meter');
-            x.setAttribute('min', dcmp(5, 2, xsbms) / 1000);
-            x.setAttribute('max', dcmp(3, 2, xsbms) / 1000);
-            x.setAttribute('value', cv);
-            x.style.top = ((x1 * 21) + 3) + 'px'
-            mt.appendChild(x);
+            if (cv > 0) {
+                var min = dcmp(5, 2, xsbms) / 1000;
+                var max = dcmp(3, 2, xsbms) / 1000;
+                cv = (cv-min)/(max-min)*100;
+            }
+
+            $("#cell"+x1).css('width', cv + '%');
+            $("#cell"+x1).css('background', getHslColor(cv));
         }
-        for (i = 2; i < 5; i++) {
-            htm('d' + i, w[i - 2]);
-        }
+
         for (x1 = 0; x1 < 7; x1++) {
             var n2 = w[8] = w[9] = w[10] = w[11] = '';
             var cv = dcmp((x1 * 3) + 29, 3, sbms) / 1000;
@@ -301,11 +228,12 @@ function all() {
                 w[6] += w[10] + fN(enA) + r;
                 w[7] += w[11] + fN((enW / 10).toFixed(1)) + r;
             }
-
         }
+
         for (i = 6; i < 11; i++) {
             htm('d' + i, w[i - 3]);
         }
+
         $('#infoBarTitle1').html('System type');
         $('#infoBarValue1').html(dcmp(7, 1, xsbms));
         $('#infoBarTitle2').html('Maximum capacity');
