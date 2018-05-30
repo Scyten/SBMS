@@ -87,11 +87,6 @@ body {
     height: 160px;
 }
 
-/* Info panel */
-#d12 {
-    position: relative;
-}
-
 .battery-container {
     position: absolute;
     box-shadow: 0 0 7px 1px #00a9da;

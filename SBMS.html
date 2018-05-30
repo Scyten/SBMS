@@ -34,34 +34,33 @@
             <span class="section-title">Info</span>
             <div id="first">
                 <div class="infoBar">
-                    <span id="infoBarTitle1" class="infoBarTitle"></span>
+                    <span class="infoBarTitle">System type</span>
                     <span id="infoBarValue1" class="infoBarValue"></span>
                 </div>
                 <div class="infoBar">
-                    <span id="infoBarTitle2" class="infoBarTitle"></span>
+                    <span class="infoBarTitle">Maximum capacity</span>
                     <span id="infoBarValue2" class="infoBarValue"></span>
                 </div>
                 <div class="infoBar">
-                    <span id="infoBarTitle3" class="infoBarTitle"></span>
+                    <span class="infoBarTitle">System status</span>
                     <span id="infoBarValue3" class="infoBarValue"></span>
                 </div>
                 <div class="infoBar">
-                    <span id="infoBarTitle4" class="infoBarTitle"></span>
+                    <span class="infoBarTitle">Interior temperature</span>
                     <span id="infoBarValue4" class="infoBarValue"></span>
                 </div>
                 <div class="infoBar">
-                    <span id="infoBarTitle5" class="infoBarTitle"></span>
+                    <span class="infoBarTitle">Exterior temperature</span>
                     <span id="infoBarValue5" class="infoBarValue"></span>
                 </div>
                 <div class="infoBar">
-                    <span id="infoBarTitle6" class="infoBarTitle"></span>
+                    <span class="infoBarTitle">Battery voltage</span>
                     <span id="infoBarValue6" class="infoBarValue"></span>
                 </div>
                 <div class="infoBar">
-                    <span id="infoBarTitle7" class="infoBarTitle"></span>
+                    <span class="infoBarTitle">Cell &#916</span>
                     <span id="infoBarValue7" class="infoBarValue"></span>
                 </div>
-                <div2 style='left:5px;top:92px;color:#a99;line-height: 25px;' id='d12'></div2>
             </div>
         </div>
         <div class="test2">
@@ -180,12 +179,49 @@
         </div>
         <div id="details" class="test3" style="height: 145px;">
             <div3>
-                <div2 style='color:#00a9da;top:22px;' id='d6'></div2>
-                <div2 id='d7'></div2>
-                <div2 id='d8'></div2>
-                <div2 id='d9'></div2>
-                <div2 id='d10'></div2>
-                <div5 style='width: 600px;top:0px;height:22px;' id='d11'></div5>
+                <div2 style="color:#00a9da;top:22px;" id="d6">
+                    Batt<br>PV1<br>PV2<br>PV1+PV2<br>Load<br>ExtLd
+                </div2>
+                <div2 id="d7">
+                    <br><span></span>
+                    <br><span></span>
+                    <br><span></span>
+                    <br><span></span>
+                    <br><span></span>
+                    <br><span></span>
+                    <br>
+                </div2>
+                <div2 id="d8">
+                    [W]
+                    <br><span></span>
+                    <br><span></span>
+                    <br><span></span>
+                    <br><span></span>
+                    <br><span></span>
+                    <br><span></span>
+                    <br>
+                </div2>
+                <div2 id="d9">
+                    [mAh]
+                    <br><span></span>
+                    <br><span></span>
+                    <br><span></span>
+                    <br><span></span>
+                    <br><span></span>
+                    <br><span></span>
+                    <br>
+                </div2>
+                <div2 id="d10">
+                    [Wh]
+                    <br><span></span>
+                    <br><span></span>
+                    <br><span></span>
+                    <br><span></span>
+                    <br><span></span>
+                    <br><span></span>
+                    <br>
+                </div2>
+                <div5 style="width: 600px;top:0px;height:22px;" id="d11"></div5>
             </div3>
         </div>
 
@@ -315,7 +351,7 @@
     averages[6] = [-1, -1];
 
     function reset() {
-        $('#d6, #d7, #d8, #d9, #d10, #d11, #d12, #g0, #g1, #g2, #g3, #g4, #g5, #g6, #g7, #g8, #ch0, #ch1, #ch2').empty();
+        $('#ch0, #ch1, #ch2').empty();
         // $('#d2, #d3, #d4, #d6, #d7, #d8, #d9, #d10, #d11, #d12, #mt1, #g0, #g1, #g2, #g3, #g4, #g5, #g6, #g7, #g8, #ch0, #ch1, #ch2').empty();
     }
 
@@ -331,7 +367,7 @@
         value = value / 100.0;
         //value from 0 to 1
         var hue = (value * 120).toString(10);
-        console.log('hue', hue);
+        // console.log('hue', hue);
         return ['linear-gradient(hsl(', hue, ',90%,80%), hsl(', hue, ',90%,50%), hsl(', hue, ',90%,50%), hsl(', hue, ',90%,30%))'].join("");
         // return ["hsl(", hue, ",100%,50%)"].join("");
     }
