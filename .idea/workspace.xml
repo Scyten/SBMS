@@ -3,6 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="3e77ee9e-7f72-4b31-a975-26340de3180a" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/SBMS.html" beforeDir="false" afterPath="$PROJECT_DIR$/SBMS.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data1.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data2.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data3.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data4.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data5.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_developer.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/marco.css" beforeDir="false" afterPath="$PROJECT_DIR$/marco.css" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -13,11 +20,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="SBMS.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="SBMS.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/SBMS.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="475">
-              <caret line="372" column="44" selection-start-line="372" selection-start-column="44" selection-end-line="372" selection-end-column="44" />
+            <state relative-caret-position="900">
+              <caret line="455" column="21" selection-start-line="455" selection-start-column="21" selection-end-line="455" selection-end-column="21" />
               <folding>
                 <element signature="n#style#0;n#div4#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div4#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -36,11 +43,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="marco.css" pinned="false" current-in-tab="false">
+      <file leaf-file-name="marco.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/marco.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="492">
-              <caret line="389" column="27" lean-forward="true" selection-start-line="389" selection-start-column="27" selection-end-line="389" selection-end-column="27" />
+            <state relative-caret-position="186">
+              <caret line="255" column="1" lean-forward="true" selection-start-line="255" selection-start-column="1" selection-end-line="255" selection-end-column="12" />
             </state>
           </provider>
         </entry>
@@ -67,7 +74,7 @@
         <entry file="file://$PROJECT_DIR$/all.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="458">
-              <caret line="189" column="28" lean-forward="true" selection-start-line="189" selection-start-column="28" selection-end-line="189" selection-end-column="28" />
+              <caret line="189" column="28" selection-start-line="189" selection-start-column="28" selection-end-line="189" selection-end-column="28" />
             </state>
           </provider>
         </entry>
@@ -84,15 +91,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>mos</find>
-      <find>counter</find>
-      <find>led</find>
-      <find>div5</find>
-      <find>div3</find>
-      <find>fan</find>
-      <find>image</find>
-      <find>batt-container</find>
-      <find>batt-gloss</find>
       <find>batt-fill</find>
       <find>getHslColor</find>
       <find>mt1</find>
@@ -114,6 +112,15 @@
       <find>max</find>
       <find>d11</find>
       <find>getBatteryHslColor</find>
+      <find>interval</find>
+      <find>ExLd</find>
+      <find>dataScript</find>
+      <find>smain2</find>
+      <find>error</find>
+      <find>bob</find>
+      <find>test</find>
+      <find>test2</find>
+      <find>test3</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -127,9 +134,9 @@
         <option value="$PROJECT_DIR$/test.js" />
         <option value="$PROJECT_DIR$/SBMS.css" />
         <option value="$PROJECT_DIR$/SBMS_original.html" />
-        <option value="$PROJECT_DIR$/marco.css" />
         <option value="$PROJECT_DIR$/all.js" />
         <option value="$PROJECT_DIR$/SBMS.html" />
+        <option value="$PROJECT_DIR$/marco.css" />
       </list>
     </option>
   </component>
@@ -212,12 +219,12 @@
       <workItem from="1526836892126" duration="31891000" />
       <workItem from="1527115908726" duration="45685000" />
       <workItem from="1527511220984" duration="1085000" />
-      <workItem from="1527541967668" duration="24360000" />
+      <workItem from="1527541967668" duration="27761000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="154119000" />
+    <option name="totallyTimeSpent" value="157520000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -690,24 +697,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/marco.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="492">
-          <caret line="389" column="27" lean-forward="true" selection-start-line="389" selection-start-column="27" selection-end-line="389" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/all.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="458">
-          <caret line="189" column="28" lean-forward="true" selection-start-line="189" selection-start-column="28" selection-end-line="189" selection-end-column="28" />
+          <caret line="189" column="28" selection-start-line="189" selection-start-column="28" selection-end-line="189" selection-end-column="28" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/SBMS.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="475">
-          <caret line="372" column="44" selection-start-line="372" selection-start-column="44" selection-end-line="372" selection-end-column="44" />
+        <state relative-caret-position="900">
+          <caret line="455" column="21" selection-start-line="455" selection-start-column="21" selection-end-line="455" selection-end-column="21" />
           <folding>
             <element signature="n#style#0;n#div4#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div4#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -722,6 +722,13 @@
             <element signature="n#style#0;n#div2#0;n#div3#0;n#div#1;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div5#0;n#div3#0;n#div#1;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/marco.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="186">
+          <caret line="255" column="1" lean-forward="true" selection-start-line="255" selection-start-column="1" selection-end-line="255" selection-end-column="12" />
         </state>
       </provider>
     </entry>

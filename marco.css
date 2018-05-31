@@ -46,43 +46,42 @@ body {
     justify-content: center;
 }
 
-/*#small-panel{*/
-/*position: relative;*/
-/*padding-top: 80px;*/
-/*padding-bottom: 70px;*/
-/*background-image: url("test_panel.png");*/
-/*background-repeat: no-repeat;*/
-/*}*/
+#error {
+    display: none;
+    color: red;
+    text-align: center;
+    font-size: 300%;
+    border: 1px solid red;
+    line-height: 200%;
+}
+
+#error-retry {
+    font-size: 50%;
+    line-height: 100%;
+}
 
 #leftPanel {
     position: relative;
-    /*background-image: url("left.png");*/
-    /*background-repeat: no-repeat;*/
     width: 473px;
-    /*height: 1116px;*/
 }
 
 #rightPanel {
 }
 
 #first, #second, #third {
-    /*width: 100%;*/
     left: -55px;
     top: -10px;
 }
 
 #first {
-    /*top: 50px;*/
     height: 200px;
 }
 
 #second {
-    /*top: 400px;*/
     height: 50px;
 }
 
 #third {
-    /*top: 800px;*/
     height: 160px;
 }
 
@@ -97,13 +96,11 @@ body {
 }
 
 .meter-fill {
-    /*background: linear-gradient(rgba(255,255,255,0), rgba(255,255,255,1));*/
     position: absolute;
     height: 100%;
 }
 
 .meter-gloss {
-    /*border: solid 1px hsl(10, 100%, 50%);*/
     background: linear-gradient(rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.2) 30%, rgba(255, 255, 255, 0.05));
     position: absolute;
     width: 100%;
@@ -250,32 +247,13 @@ mx1 {
 meter {
     box-shadow: 1px 1px 1px #00a9da;
     -webkit-appearance: progress-bar;
-    /*-webkit-transform: rotate(-90deg);*/
-    /*-moz-transform: rotate(-90deg);*/
-    /*-o-transform: rotate(-90deg);*/
-    /*transform: rotate(-90deg);*/
 }
 
 div {
     float: none;
 }
 
-.test {
-    /*position: absolute;*/
-    /*width:500px;*/
-    /*height: 400px;*/
-    display: block;
-    position: relative;
-    margin-bottom: 30px;
-    border-style: solid;
-    border-width: 61px 224px 60px 76px;
-    -moz-border-image: url(boundaries.png) 61 224 60 76 repeat;
-    -webkit-border-image: url(boundaries.png) 61 224 60 76 repeat;
-    -o-border-image: url(boundaries.png) 61 224 60 76 repeat;
-    border-image: url(boundaries.png) 61 224 60 76 repeat;
-}
-
-.test2 {
+.thick-panel {
     display: block;
     position: relative;
     margin-bottom: 20px;
@@ -287,7 +265,7 @@ div {
     border-image: url(boundaries-small.png) 53 227 45 76 repeat;
 }
 
-.test3 {
+.slim-panel {
     display: block;
     position: relative;
     margin-bottom: 10px;
@@ -386,10 +364,8 @@ button:hover {
 .led.temperature {
     left: auto;
     right: 5px;
-    top:5px;
+    top: 5px;
     background-color: #AAA;
-    /*box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset hsl(342.3,90%,80%) 0 -1px 9px, hsl(342.3,90%,80%) 0 -2px 15px;*/
-    /*box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #808080 0 -1px 9px, #FFF 0 -1px 0;*/
 }
 
 .led-yellow {
@@ -422,9 +398,6 @@ button:hover {
     top: -10px;
     left: -10px;
     float: left;
-    /*border: 1px solid red;*/
-    /*width: 100px;*/
-    /*height: 70px;*/
     color: white;
 }
 
@@ -443,7 +416,6 @@ button:hover {
 .laser {
     display: inline-block;
     width: 30px;
-    /*height:0px;*/
     border: 2px solid #dadada;
     border-radius: 7px;
     box-shadow: 0 0 10px #9ecaed;
@@ -555,15 +527,6 @@ div5 {
 .fan img {
     margin: 5px;
     transform-origin: 30px 31px;
-    /*position: absolute;*/
-    /*top: 50%;*/
-    /*left: 50%;*/
-    /*width: 120px;*/
-    /*height: 120px;*/
-    /*margin:-60px 0 0 -60px;*/
-    /*-webkit-animation: spin 4s linear infinite;*/
-    /*-moz-animation: spin 4s linear infinite;*/
-    /*animation: spin 0.50s linear infinite;*/
 }
 
 @-moz-keyframes spin {

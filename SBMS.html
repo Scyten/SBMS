@@ -18,8 +18,10 @@
     <script language="JavaScript" type="application/javascript" src="all.js"></script>
 </head>
 <body>
-<!--<img class="image" src="http://i.stack.imgur.com/pC1Tv.jpg" alt="" width="120" height="120">-->
-
+<div id="error">
+    ERROR: CANNOT CONNECT TO SBMS
+    <br><pre id="error-retry"></pre>
+</div>
 
 <div id="useless">
     <div4 id='mo0'>PV1 & PV2</div4>
@@ -30,7 +32,7 @@
 
 <div id="container">
     <div id="leftPanel">
-        <div class="test2">
+        <div class="thick-panel">
             <span class="section-title">Info</span>
             <div id="first">
                 <div class="infoBar">
@@ -65,7 +67,7 @@
                 </div>
             </div>
         </div>
-        <div class="test2">
+        <div class="thick-panel">
             <span class="section-title">Status</span>
             <div id="second">
                 <!--<meter id='bat' style='height: 40px; width: 220px; top: 9px;' min='0' low='20' max='100'></meter>-->
@@ -90,7 +92,7 @@
                 </div>
             </div>
         </div>
-        <div class="test2">
+        <div class="thick-panel">
             <span class="section-title">Cells</span>
             <div id="third">
                 <!--
@@ -171,7 +173,7 @@
     </div>
 
     <div id="rightPanel">
-        <div id="date-time" class="test3" style="height: 145px;">
+        <div id="date-time" class="slim-panel" style="height: 145px;">
             <time id="date"></time>
             <time id="time"></time>
             <div class="button-container">
@@ -179,7 +181,7 @@
                 <button onclick="localStorage.removeItem('sbms');localStorage['sbms'] ='';">CLEAR LOG</button>
             </div>
         </div>
-        <div id="details" class="test3" style="height: 145px;">
+        <div id="details" class="slim-panel" style="height: 145px;">
             <div3>
                 <div2 style="color:#00a9da;top:22px;" id="d6">
                     Batt<br>PV1<br>PV2<br>PV1+PV2<br>Load<br>ExtLd
@@ -227,7 +229,7 @@
             </div3>
         </div>
 
-        <div class="test3">
+        <div class="slim-panel">
             <div class="graph-panel">
                 <div class="fan">
                     <img id="fan0-0" src="fan.png"/>
@@ -262,7 +264,7 @@
             </div3>
         </div>
 
-        <div class="test3">
+        <div class="slim-panel">
             <div class="graph-panel">
                 <div class="fan">
                     <img id="fan3-0" src="fan.png"/>
@@ -297,7 +299,7 @@
             </div3>
         </div>
 
-        <div class="test3">
+        <div class="slim-panel">
             <div class="graph-panel">
                 <div class="fan">
                     <img id="fan6-0" src="fan.png"/>
@@ -337,20 +339,21 @@
 <script>
     let searchParams = new URLSearchParams(window.location.search);
     // searchParams.has('sent');
-    let interval = parseInt(searchParams.get('interval'));
+    const interval = parseInt(searchParams.get('interval'));
+    const LOCAL_DEBUG = parseInt(searchParams.get('debug'));
 
-    var DATA_INTERVAL_OK = isNaN(interval) ? 2000 : interval;
-    var DATA_INTERVAL_ERROR = 10000;
-    var LOCAL_DEBUG = true;
+    const DATA_INTERVAL_OK = isNaN(interval) ? 2000 : interval;
+    const DATA_INTERVAL_ERROR = 10000;
+    const DATA_FETCH_TIMEOUT = 3000;
     var counter = 1;
     var ledsStatus = [1, 1, 1];
-    var FAN_MAX_SPEED = 0.5;
-    var FAN_MIN_SPEED = 1.5;
-    var FAN_DELTA = FAN_MIN_SPEED - FAN_MAX_SPEED;
+    const FAN_MAX_SPEED = 0.5;
+    const FAN_MIN_SPEED = 1.5;
+    const FAN_DELTA = FAN_MIN_SPEED - FAN_MAX_SPEED;
     var averages = [];
-    var batteryPercentRange = {min: 40, max: 100};
-    var intTemperatureRange = {min: 10, max: 40};
-    var extTemperatureRange = {min: -45, max: 40};
+    const batteryPercentRange = {min: 40, max: 100};
+    const intTemperatureRange = {min: 10, max: 40};
+    const extTemperatureRange = {min: -45, max: 40};
     averages[0] = [-1, -1];
     averages[3] = [-1, -1];
     averages[6] = [-1, -1];
@@ -435,41 +438,43 @@
     }
 
     function getData() {
-        var dataUrl = LOCAL_DEBUG ? "data" + counter + ".js" : "http://naturalborncamper.com/sandbox/SBMS/data" + counter + ".js";
+        var dataUrl = LOCAL_DEBUG ? "test_data/data" + counter + ".js" : "http://192.168.4.1/";
+        // var dataUrl = LOCAL_DEBUG ? "test_data/data_developer.js" : "http://192.168.4.1/";
         console.log(dataUrl);
 
         if (LOCAL_DEBUG) {
-            $('#dataScript').off('ready load').remove();
+            $('#localTestDataScript').off('ready load').remove();
 
-            bob = document.body.appendChild(document.createElement('script'));
-            bob.id = 'dataScript';
-            $('#dataScript').on('load', function () {
+            scriptTag = document.body.appendChild(document.createElement('script'));
+            scriptTag.id = 'localTestDataScript';
+            $('#localTestDataScript').on('load', function () {
                 console.log('load');
                 parseData();
                 startDataFetchTimer(DATA_INTERVAL_OK);
-                (counter < 5) ? ++counter : counter = 1;
+                if (LOCAL_DEBUG) (counter < 5) ? ++counter : counter = 1;
             });
-            bob.src = dataUrl;
+            scriptTag.src = dataUrl;
         } else {
-            $.getScript(dataUrl)
-                .done(function (script, textStatus) {
-                    parseData();
-                    startDataFetchTimer(DATA_INTERVAL_OK);
-                    console.log(textStatus);
-                })
-                .fail(function (jqxhr, settings, exception) {
-                    startDataFetchTimer(DATA_INTERVAL_ERROR);
-                    console.log("Triggered ajaxError handler.");
-                })
-                .always(function () {
-                    (counter < 5) ? ++counter : counter = 1;
-                });
+            $.ajax({
+                url: dataUrl,
+                dataType: "script",
+                timeout: DATA_FETCH_TIMEOUT
+            }).done(function (script, textStatus) {
+                $('#error').fadeOut('fast');
+                parseData();
+                startDataFetchTimer(DATA_INTERVAL_OK);
+                console.log(textStatus);
+            }).fail(function (jqxhr, settings, exception) {
+                $('#error-retry').append("retrying in "+DATA_INTERVAL_ERROR/1000+" seconds ...\n");
+                $('#error').fadeIn('fast');
+                startDataFetchTimer(DATA_INTERVAL_ERROR);
+                console.log("Triggered ajaxError handler.");
+            }).always(function () {
+                if (LOCAL_DEBUG) (counter < 5) ? ++counter : counter = 1;
+            });
         }
     }
-</script>
 
-
-<script id='smain2'>
     all();
 
     function dload(n, t) {
@@ -486,13 +491,6 @@
         }
     }
 
-    //http://192.168.4.1/
-</script>
-
-<script id="dataScript" type="text/javascript"></script>
-<!--<script type="text/javascript" src="http://192.168.4.1/"></script>-->
-
-<script>
     $(function () {
         startDataFetchTimer(0);
         displayDateTime();
