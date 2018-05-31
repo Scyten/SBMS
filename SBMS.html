@@ -348,9 +348,9 @@
     var FAN_MIN_SPEED = 1.5;
     var FAN_DELTA = FAN_MIN_SPEED - FAN_MAX_SPEED;
     var averages = [];
-    var batteryPercentRange = {min: 40, max:100};
-    var intTemperatureRange = {min: 10, max:40};
-    var extTemperatureRange = {min: -45, max:40};
+    var batteryPercentRange = {min: 40, max: 100};
+    var intTemperatureRange = {min: 10, max: 40};
+    var extTemperatureRange = {min: -45, max: 40};
     averages[0] = [-1, -1];
     averages[3] = [-1, -1];
     averages[6] = [-1, -1];
@@ -371,13 +371,9 @@
     function getBatteryHslColor(value, min, max) {
         //value from 0 to 1
         value = (value - min) / (max - min);
-        console.log('value', value);
-        let percent = value * 100.0;
-        console.log('percent', percent);
         let hue = (value * 120).toString(10);
-        console.log('hue', hue);
         return {
-            percent: percent,
+            percent: value * 100.0,
             background: ['linear-gradient(hsl(', hue, ',90%,80%), hsl(', hue, ',90%,50%), hsl(', hue, ',90%,50%), hsl(', hue, ',90%,30%))'].join("")
         };
 
@@ -385,9 +381,9 @@
     }
 
     function getTemperatureHslColor(value, min, max) {
+        //value from 0 to 1
         value = (value - min) / (max - min);
         var hue = ((value * 120) + 240).toString(10);
-        // console.log('hue', hue);
         return {
             hue: "hsl(" + hue + ",90%,50%)",
             box_shadow: ['rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset hsl(', hue, ',90%,50%) 0 -1px 9px, hsl(', hue, ',90%,50%) 0 -2px 20px 5px;'].join("")
