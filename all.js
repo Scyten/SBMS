@@ -44,7 +44,7 @@ function all() {
     // SOC = 80;
     htm('SOC', '<b>' + SOC + '%</b>');
     $('#battery').css('width', SOC + '%');
-    $('#battery').css('background', getHslColor(SOC));
+    $('#battery').css('background', getBatteryHslColor(SOC, batteryPercentRange.min, batteryPercentRange.max).background);
     // document.getElementById('bat').value = SOC;
 
     if (sbms2[10] != 1) {
@@ -184,11 +184,16 @@ function all() {
             if (cv > 0) {
                 var min = dcmp(5, 2, xsbms) / 1000;
                 var max = dcmp(3, 2, xsbms) / 1000;
-                cv = (cv - min) / (max - min) * 100;
+            }
+            else{
+                var min = 0;
+                var max = 1;
             }
 
-            $("#cell" + x1).css('width', cv + '%');
-            $("#cell" + x1).css('background', getHslColor(cv));
+            var hslValues = getBatteryHslColor(cv, min, max);
+
+            $("#cell" + x1).css('width', hslValues.percent + '%');
+            $("#cell" + x1).css('background', hslValues.background);
         }
 
 
@@ -230,13 +235,26 @@ function all() {
             }
         }
 
+        var intTemperature = ((dcmp(24, 2, sbms) / 10) - 45).toFixed(1);
+        var extTemperature = ((dcmp(26, 2, sbms) / 10) - 45).toFixed(1);
         $('#infoBarValue1').html(dcmp(7, 1, xsbms));
         $('#infoBarValue2').html(dcmp(8, 3, xsbms) + sbms1[8]);
         $('#infoBarValue3').html(dcmp(56, 3, sbms) + r);
-        $('#infoBarValue4').html(((dcmp(24, 2, sbms) / 10) - 45).toFixed(1) + '&#8451');
-        $('#infoBarValue5').html(((dcmp(26, 2, sbms) / 10) - 45).toFixed(1) + '&#8451');
+        $('#infoBarValue4').html(intTemperature + '&#8451');
+        $('#infoBarValue5').html(extTemperature + '&#8451');
         $('#infoBarValue6').html(bv.toFixed(3) + 'V');
         $('#infoBarValue7').html(((max1 - min1) * 1000).toFixed(0) + 'mV');
+
+        // Friggin .css('box-shadow') is not working, must use .attr()
+        // $("#intTemperatureLed").css('box-shadow', getTemperatureHslColor(intTemperature, 0, 40));
+
+        var hslValues = getTemperatureHslColor(intTemperature, intTemperatureRange.min, intTemperatureRange.max);
+        $("#intTemperatureLed").attr('style', "box-shadow:" + hslValues.box_shadow);
+        $("#intTemperatureLed").css('background-color', hslValues.hue);
+
+        hslValues = getTemperatureHslColor(extTemperature, extTemperatureRange.min, extTemperatureRange.max);
+        $("#extTemperatureLed").attr('style', "box-shadow:" + hslValues.box_shadow);
+        $("#extTemperatureLed").css('background-color', hslValues.hue);
     }
 
 }

@@ -68,7 +68,6 @@ body {
 #first, #second, #third {
     /*width: 100%;*/
     left: -55px;
-    float: none;
     top: -10px;
 }
 
@@ -174,7 +173,6 @@ body {
     position: absolute;
     left: 300px;
     display: block;
-    float: none;
     white-space: nowrap;
     line-height: 150%;
     top: 0px;
@@ -266,7 +264,6 @@ div {
     /*position: absolute;*/
     /*width:500px;*/
     /*height: 400px;*/
-    float: none;
     display: block;
     position: relative;
     margin-bottom: 30px;
@@ -279,7 +276,6 @@ div {
 }
 
 .test2 {
-    float: none;
     display: block;
     position: relative;
     margin-bottom: 20px;
@@ -292,7 +288,6 @@ div {
 }
 
 .test3 {
-    /*float: none;*/
     display: block;
     position: relative;
     margin-bottom: 10px;
@@ -314,7 +309,6 @@ div {
     background-image: url("infobar-small.png");
     /*background-image: url("infobar.png");*/
     margin-bottom: 3px;
-    float: none;
 }
 
 .largeBar {
@@ -323,7 +317,6 @@ div {
     background-repeat: no-repeat;
     background-image: url("large-row.png");
     margin-bottom: 3px;
-    float: none;
     padding-top: 10px;
 }
 
@@ -383,12 +376,20 @@ button:hover {
     display: inline-block;
     position: absolute;
     left: 100px;
-    float: none;
     top: 5px;
     margin: 0 auto;
     width: 16px;
     height: 15px;
     border-radius: 50%;
+}
+
+.led.temperature {
+    left: auto;
+    right: 5px;
+    top:5px;
+    background-color: #AAA;
+    /*box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset hsl(342.3,90%,80%) 0 -1px 9px, hsl(342.3,90%,80%) 0 -2px 15px;*/
+    /*box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #808080 0 -1px 9px, #FFF 0 -1px 0;*/
 }
 
 .led-yellow {
@@ -481,7 +482,6 @@ button:hover {
 .graph-info {
     position: absolute;
     top: 0;
-    /*width: 1px;*/
     height: 7px;
     border-style: solid;
     border-width: 8px 12px 10px;
@@ -489,11 +489,6 @@ button:hover {
     -webkit-border-image: url(infobar-simple.png) 8 12 10 repeat;
     -o-border-image: url(infobar-simple.png) 8 12 10 repeat;
     border-image: url(infobar-simple.png) 8 12 10 fill repeat;
-    /*border-width: 11px 67px 11px 69px;*/
-    /*-moz-border-image: url(infoBar-narrow.png) 11 67 11 69 repeat;*/
-    /*-webkit-border-image: url(infoBar-narrow.png) 11 67 11 69 repeat;*/
-    /*-o-border-image: url(infoBar-narrow.png) 11 67 11 69 repeat;*/
-    /*border-image: url(infoBar-narrow.png) 11 67 11 69 fill repeat;*/
 }
 
 .graph-info.first {

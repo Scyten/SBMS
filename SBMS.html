@@ -48,10 +48,12 @@
                 <div class="infoBar">
                     <span class="infoBarTitle">Interior temperature</span>
                     <span id="infoBarValue4" class="infoBarValue"></span>
+                    <div id="intTemperatureLed" class="led temperature"></div>
                 </div>
                 <div class="infoBar">
                     <span class="infoBarTitle">Exterior temperature</span>
                     <span id="infoBarValue5" class="infoBarValue"></span>
+                    <div id="extTemperatureLed" class="led temperature"></div>
                 </div>
                 <div class="infoBar">
                     <span class="infoBarTitle">Battery voltage</span>
@@ -346,6 +348,9 @@
     var FAN_MIN_SPEED = 1.5;
     var FAN_DELTA = FAN_MIN_SPEED - FAN_MAX_SPEED;
     var averages = [];
+    var batteryPercentRange = {min: 40, max:100};
+    var intTemperatureRange = {min: 10, max:40};
+    var extTemperatureRange = {min: -45, max:40};
     averages[0] = [-1, -1];
     averages[3] = [-1, -1];
     averages[6] = [-1, -1];
@@ -356,20 +361,38 @@
     }
 
     function displayDateTime() {
-        var date = new Date();
-        var n = date.toDateString();
-        var time = date.toLocaleTimeString();
+        let date = new Date();
+        let n = date.toDateString();
+        let time = date.toLocaleTimeString();
         $('#date').html(n);
         $('#time').html(time);
     }
 
-    function getHslColor(value) {
-        value = value / 100.0;
+    function getBatteryHslColor(value, min, max) {
         //value from 0 to 1
-        var hue = (value * 120).toString(10);
+        value = (value - min) / (max - min);
+        console.log('value', value);
+        let percent = value * 100.0;
+        console.log('percent', percent);
+        let hue = (value * 120).toString(10);
+        console.log('hue', hue);
+        return {
+            percent: percent,
+            background: ['linear-gradient(hsl(', hue, ',90%,80%), hsl(', hue, ',90%,50%), hsl(', hue, ',90%,50%), hsl(', hue, ',90%,30%))'].join("")
+        };
+
+
+    }
+
+    function getTemperatureHslColor(value, min, max) {
+        value = (value - min) / (max - min);
+        var hue = ((value * 120) + 240).toString(10);
         // console.log('hue', hue);
-        return ['linear-gradient(hsl(', hue, ',90%,80%), hsl(', hue, ',90%,50%), hsl(', hue, ',90%,50%), hsl(', hue, ',90%,30%))'].join("");
-        // return ["hsl(", hue, ",100%,50%)"].join("");
+        return {
+            hue: "hsl(" + hue + ",90%,50%)",
+            box_shadow: ['rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset hsl(', hue, ',90%,50%) 0 -1px 9px, hsl(', hue, ',90%,50%) 0 -2px 20px 5px;'].join("")
+        };
+
     }
 
     function setFanRotation(fanId1, fanId2) {
