@@ -3,12 +3,14 @@
   <component name="ChangeListManager">
     <list default="true" id="3e77ee9e-7f72-4b31-a975-26340de3180a" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/SBMS.html" beforeDir="false" afterPath="$PROJECT_DIR$/SBMS.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data1.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data2.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data3.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data4.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data5.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_developer.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/boundaries-small.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/boundaries.png" beforeDir="false" afterPath="$PROJECT_DIR$/boundaries.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/grid_green.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grid_green_crosshairs.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grid_white_crosshairs.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grid_white_dots.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/infoBar-narrow.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/infobar.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/marco.css" beforeDir="false" afterPath="$PROJECT_DIR$/marco.css" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -23,7 +25,7 @@
       <file leaf-file-name="SBMS.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/SBMS.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="900">
+            <state relative-caret-position="7239">
               <caret line="455" column="21" selection-start-line="455" selection-start-column="21" selection-end-line="455" selection-end-column="21" />
               <folding>
                 <element signature="n#style#0;n#div4#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -46,8 +48,8 @@
       <file leaf-file-name="marco.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/marco.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="186">
-              <caret line="255" column="1" lean-forward="true" selection-start-line="255" selection-start-column="1" selection-end-line="255" selection-end-column="12" />
+            <state relative-caret-position="390">
+              <caret line="267" column="3" lean-forward="true" selection-start-line="267" selection-start-column="3" selection-end-line="267" selection-end-column="3" />
             </state>
           </provider>
         </entry>
@@ -91,8 +93,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>batt-fill</find>
-      <find>getHslColor</find>
       <find>mt1</find>
       <find>meter</find>
       <find>mx1</find>
@@ -117,10 +117,12 @@
       <find>dataScript</find>
       <find>smain2</find>
       <find>error</find>
-      <find>bob</find>
-      <find>test</find>
       <find>test2</find>
       <find>test3</find>
+      <find>large-panel</find>
+      <find>test</find>
+      <find>bob</find>
+      <find>infobar</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -219,12 +221,12 @@
       <workItem from="1526836892126" duration="31891000" />
       <workItem from="1527115908726" duration="45685000" />
       <workItem from="1527511220984" duration="1085000" />
-      <workItem from="1527541967668" duration="27761000" />
+      <workItem from="1527541967668" duration="28513000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="157520000" />
+    <option name="totallyTimeSpent" value="158272000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -706,7 +708,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/SBMS.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="900">
+        <state relative-caret-position="7239">
           <caret line="455" column="21" selection-start-line="455" selection-start-column="21" selection-end-line="455" selection-end-column="21" />
           <folding>
             <element signature="n#style#0;n#div4#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -727,8 +729,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/marco.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="255" column="1" lean-forward="true" selection-start-line="255" selection-start-column="1" selection-end-line="255" selection-end-column="12" />
+        <state relative-caret-position="390">
+          <caret line="267" column="3" lean-forward="true" selection-start-line="267" selection-start-column="3" selection-end-line="267" selection-end-column="3" />
         </state>
       </provider>
     </entry>

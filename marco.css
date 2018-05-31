@@ -253,19 +253,19 @@ div {
     float: none;
 }
 
-.thick-panel {
+.panel {
     display: block;
     position: relative;
     margin-bottom: 20px;
     border-style: solid;
     border-width: 53px 227px 45px 76px;
-    -moz-border-image: url(boundaries-small.png) 53 227 45 76 repeat;
-    -webkit-border-image: url(boundaries-small.png) 53 227 45 76 repeat;
-    -o-border-image: url(boundaries-small.png) 53 227 45 76 repeat;
-    border-image: url(boundaries-small.png) 53 227 45 76 repeat;
+    -moz-border-image: url(boundaries.png) 53 227 45 76 repeat;
+    -webkit-border-image: url(boundaries.png) 53 227 45 76 repeat;
+    -o-border-image: url(boundaries.png) 53 227 45 76 repeat;
+    border-image: url(boundaries.png) 53 227 45 76 repeat;
 }
 
-.slim-panel {
+.simple-panel {
     display: block;
     position: relative;
     margin-bottom: 10px;
