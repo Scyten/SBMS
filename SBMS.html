@@ -465,10 +465,10 @@
                 startDataFetchTimer(DATA_INTERVAL_OK);
                 console.log(textStatus);
             }).fail(function (jqxhr, settings, exception) {
-                $('#error-retry').append("retrying in "+DATA_INTERVAL_ERROR/1000+" seconds ...\n");
-                $('#error').fadeIn('fast');
+                // $('#error-retry').empty().append("retrying in "+DATA_INTERVAL_ERROR/1000+" seconds ...\n");
+                // $('#error').fadeIn('fast');
                 startDataFetchTimer(DATA_INTERVAL_ERROR);
-                console.log("Triggered ajaxError handler.");
+                console.log("retrying in "+DATA_INTERVAL_ERROR/1000+" seconds ...\n");
             }).always(function () {
                 if (LOCAL_DEBUG) (counter < 5) ? ++counter : counter = 1;
             });

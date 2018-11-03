@@ -12,7 +12,7 @@ function all() {
     var gsbms = localStorage['gsbms'];
     var eA = localStorage['eA'];
     var eW = localStorage['eW'];
-    var sbms2 = JSON.parse(localStorage['sbms2']);
+    var sbms2 = localStorage['sbms2']? JSON.parse(localStorage['sbms2']): '';
     var sbms1 = ['', 'Batt', 'PV1', 'PV2', 'ExtLd', 'PV1+PV2', 'Load', 'ExtLd', localStorage['cap'], localStorage['WA'], localStorage['model']];
     var lg1 = "#B33A33B##333333B##B33A33B##B33333B##B''''''##A44A544##B44444B##;75444A##144B444##B33333B##444444B##2331$$A##B8:B:8B#";
 
@@ -29,7 +29,8 @@ function all() {
     function dcmp(p, s, d) {
         xx = 0;
         for (z = 0; z < s; z++) {
-            xx = xx + ((d.charCodeAt((p + s - 1) - z) - 35) * Math.pow(91, z));
+            if (typeof d != "undefined")
+                xx = xx + ((d.charCodeAt((p + s - 1) - z) - 35) * Math.pow(91, z));
         }
         return xx;
     }
@@ -187,7 +188,7 @@ function all() {
             }
             else{
                 var min = 0;
-                var max = 1;
+                var max = 1;1
             }
 
             var hslValues = getBatteryHslColor(cv, min, max);
@@ -204,7 +205,7 @@ function all() {
             var enW = dcmp(x1 * 6, 6, eW);
             var enA = dcmp(x1 * 6, 6, eA);
             if (x1 == 0) {
-                n2 = sbms.charAt(28);
+                n2 = (typeof sbms != "undefined")? sbms.charAt(28): '';
             }
 
             if (x1 == 1 || x1 == 2) {
