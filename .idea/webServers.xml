@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="3b5da53f-b86e-4713-a3f1-00d84705193f" name="OpenPlotter" url="http://10.10.10.200">
+        <fileTransfer host="10.10.10.200" port="22" privateKey="C:\Users\Marco\.ssh\id_rsa" rootFolder="/home/pi/SBMS" accessType="SFTP" keyPair="true">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" shareSSLContext="true" />
+          </advancedOptions>
+          <option name="port" value="22" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

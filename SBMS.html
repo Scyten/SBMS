@@ -1,10 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <!--
-
-
-    -->
     <title>ElectroDacus</title>
     <meta http-equiv='cache-control' content='no-cache'>
     <meta http-equiv='expires' content='0'>
@@ -20,7 +16,8 @@
 <body>
 <div id="error">
     ERROR: CANNOT CONNECT TO SBMS
-    <br><pre id="error-retry"></pre>
+    <br>
+    <pre id="error-retry"></pre>
 </div>
 
 <div id="useless">
@@ -338,22 +335,26 @@
 
 <script>
     let searchParams = new URLSearchParams(window.location.search);
+    let currentEncodedData = "";
     // searchParams.has('sent');
+
     const interval = parseInt(searchParams.get('interval'));
     const LOCAL_DEBUG = parseInt(searchParams.get('debug'));
 
+    const USE_SERIAL_DATA = parseInt(searchParams.get('use_serial_data'));
     const DATA_INTERVAL_OK = isNaN(interval) ? 2000 : interval;
     const DATA_INTERVAL_ERROR = 10000;
     const DATA_FETCH_TIMEOUT = 3000;
-    var counter = 1;
-    var ledsStatus = [1, 1, 1];
     const FAN_MAX_SPEED = 0.5;
     const FAN_MIN_SPEED = 1.5;
     const FAN_DELTA = FAN_MIN_SPEED - FAN_MAX_SPEED;
-    var averages = [];
     const batteryPercentRange = {min: 40, max: 100};
     const intTemperatureRange = {min: 10, max: 40};
     const extTemperatureRange = {min: -45, max: 40};
+
+    var counter = 1;
+    var ledsStatus = [1, 1, 1];
+    var averages = [];
     averages[0] = [-1, -1];
     averages[3] = [-1, -1];
     averages[6] = [-1, -1];
@@ -379,8 +380,6 @@
             percent: value * 100.0,
             background: ['linear-gradient(hsl(', hue, ',90%,80%), hsl(', hue, ',90%,50%), hsl(', hue, ',90%,50%), hsl(', hue, ',90%,30%))'].join("")
         };
-
-
     }
 
     function getTemperatureHslColor(value, min, max) {
@@ -411,25 +410,44 @@
 
     function parseData() {
         reset();
-        sessionStorage['PV1'] = PV1;
-        sessionStorage['PV2'] = PV2;
-        sessionStorage['Batp'] = Btp;
-        sessionStorage['Batn'] = Btn;
-        sessionStorage['Ld'] = Ld;
-        sessionStorage['ELd'] = ELd;
+        sessionStorage['PV1'] = typeof PV1 == "undefined"? '': PV1;
+        sessionStorage['PV2'] = typeof PV2 == "undefined"? '': PV2;
+        sessionStorage['Batp'] = typeof Btp == "undefined"? '': Btp;
+        sessionStorage['Batn'] = typeof Btn == "undefined"? '': Btn;
+        sessionStorage['Ld'] = typeof Ld == "undefined"? '': Ld;
+        sessionStorage['ELd'] = typeof ELd == "undefined"? '': ELd;
 
-        localStorage['sbmsb'] = sbms;
-        localStorage['xsbms'] = xsbms;
-        localStorage['gsbms'] = gsbms;
-        localStorage['eA'] = eA;
-        localStorage['eW'] = eW;
-        localStorage['cap'] = s1[0];
-        localStorage['WA'] = s1[1];
-        localStorage['model'] = s1[2];
-        localStorage['sbms2'] = JSON.stringify(s2);
-        localStorage['sbms'] = localStorage['sbms'] + sbms + '\n';
+        localStorage['sbmsb'] = typeof sbms == "undefined"? '': sbms;
+        localStorage['xsbms'] = typeof xsbms == "undefined"? '': xsbms;
+        localStorage['gsbms'] = typeof gsbms == "undefined"? '': gsbms;
+        localStorage['eA'] = typeof eA == "undefined"? '': eA;
+        localStorage['eW'] = typeof eW == "undefined"? '': eW;
+        localStorage['cap'] = typeof s1 == "undefined"? '': s1[0];
+        localStorage['WA'] = typeof s1 == "undefined"? '': s1[1];
+        localStorage['model'] = typeof s1 == "undefined"? '': s1[2];
+        localStorage['sbms2'] = typeof s2 == "undefined"? '': JSON.stringify(s2);
+        localStorage['sbms'] = typeof sbms == "undefined"? '': localStorage['sbms'] + sbms + '\n';
 
         all();
+    }
+
+    function executeSerialDataFile() {
+        document.getElementById("serial-data-loader");
+        // document.getElementById("serial-data-loader").remove();
+        var head = document.getElementsByTagName('head')[0];
+        var script = document.createElement('script');
+        script.src = "serial_data.js?" + new Date();
+        script.id = "serial-data-loader";
+        head.appendChild(script);
+    }
+
+    function DisplaySerialData(data) {
+        if (currentEncodedData == data) return;
+        sbms = currentEncodedData = data;
+
+        $('#error').fadeOut('fast');
+        parseData();
+        startDataFetchTimer(DATA_INTERVAL_OK);
     }
 
     function startDataFetchTimer(miliseconds) {
@@ -454,6 +472,8 @@
                 if (LOCAL_DEBUG) (counter < 5) ? ++counter : counter = 1;
             });
             scriptTag.src = dataUrl;
+        } else if (USE_SERIAL_DATA) {
+            executeSerialDataFile();
         } else {
             $.ajax({
                 url: dataUrl,
@@ -468,7 +488,7 @@
                 // $('#error-retry').empty().append("retrying in "+DATA_INTERVAL_ERROR/1000+" seconds ...\n");
                 // $('#error').fadeIn('fast');
                 startDataFetchTimer(DATA_INTERVAL_ERROR);
-                console.log("retrying in "+DATA_INTERVAL_ERROR/1000+" seconds ...\n");
+                console.log("retrying in " + DATA_INTERVAL_ERROR / 1000 + " seconds ...\n");
             }).always(function () {
                 if (LOCAL_DEBUG) (counter < 5) ? ++counter : counter = 1;
             });
