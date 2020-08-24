@@ -110,13 +110,16 @@ body {
 
 .battery {
     height: 50px;
-    width: 220px;
+    width: 270px;
     top: 9px;
 }
 
 .cell {
     width: 180px;
     height: 12px;
+    position: relative;
+    top: 5px;
+    margin-bottom: 9px;
 }
 
 .mx1 {
@@ -135,37 +138,42 @@ body {
     color: #a99;
 }
 
-#mt1 > :nth-of-type(1) {
+.infoBarValue, .graph-info, #SOC, #d3 span, #d7 span, #d8 span, #d9 span, #d10 span{
+    font-family: 'Arial';
+}
+
+
+/*#mt1 > .cell:nth-of-type(1) {
     top: 3px;
 }
 
-#mt1 > :nth-of-type(2) {
+#mt1 > .cell:nth-of-type(2) {
     top: 24px;
 }
 
-#mt1 > :nth-of-type(3) {
+#mt1 > .cell:nth-of-type(3) {
     top: 45px;
 }
 
-#mt1 > :nth-of-type(4) {
+#mt1 > .cell:nth-of-type(4) {
     top: 66px;
 }
 
-#mt1 > :nth-of-type(5) {
+#mt1 > .cell:nth-of-type(5) {
     top: 87px;
 }
 
-#mt1 > :nth-of-type(6) {
+#mt1 > .cell:nth-of-type(6) {
     top: 108px;
 }
 
-#mt1 > :nth-of-type(7) {
+#mt1 > .cell:nth-of-type(7) {
     top: 129px;
 }
 
-#mt1 > :nth-of-type(8) {
+#mt1 > .cell:nth-of-type(8) {
     top: 150px;
-}
+}*/
 
 #status-leds {
     position: absolute;
@@ -208,6 +216,7 @@ body {
 
 #details div2 {
     text-align: right;
+
 }
 
 #details div2:nth-of-type(1) {
@@ -547,4 +556,8 @@ div5 {
         -webkit-transform: rotate(-360deg);
         transform: rotate(-360deg);
     }
+}
+
+.hidden {
+    display: none;
 }

@@ -1,5 +1,5 @@
 function all() {
-
+    var fourCells = true;
     var PV1 = sessionStorage['PV1'];
     var PV2 = sessionStorage['PV2'];
     var Batp = sessionStorage['Batp'];
@@ -168,16 +168,32 @@ function all() {
 
         var bv = pv3 = sv = max1 = min1 = 0;
         for (x1 = 0; x1 < 8; x1++) {
-            var cv = dcmp((x1 * 2) + 8, 2, sbms) / 1000;
+
+
+            var cv = dcmp((x1 * 2) + 8, 2, sbms) / 1000; //cell voltage
             var selector = "span:eq(" + x1 + ")";
+            if(fourCells){
+                if(x1<2){
+                    var selectorMinMax = "span:eq(" + x1 + ")";
+                }
+                else{
+                    var selectorMinMax = "span:eq(" + (x1-4) + ")";
+                }
+            } else{
+                selectorMinMax = selector;
+            }
+
             if (sbms2[9] == x1 + 1) {
-                $("#d2, #d3").find(selector).removeClass().addClass('mn1');
+                $("#d2").find(selectorMinMax).removeClass().addClass('mn1');
+                $("#d3").find(selector).removeClass().addClass('mn1');
             	min1=cv;
             }
 
             if (sbms2[8] == x1 + 1) {
-                $("#d2, #d3").find(selector).removeClass().addClass('mx1');
+                $("#d2").find(selectorMinMax).removeClass().addClass('mx1');
+                $("#d3").find(selector).removeClass().addClass('mx1');
             	max1=cv;
+
             }
 
             $("#d3").find(selector).html(cv.toFixed(3));
@@ -197,6 +213,27 @@ function all() {
 
             $("#cell" + x1).css('width', hslValues.percent + '%');
             $("#cell" + x1).css('background', hslValues.background);
+            if (fourCells){
+
+                if (x1>1 && x1<6){
+                    var selector = "span:eq(" + x1 + ")";
+                    $("#d3, #d4, #d5").find(selector).removeClass().addClass('hidden');
+                    var selector = "br:eq(" + x1 + ")";
+                    $("#d3, #d4, #d5").find(selector).removeClass().addClass('hidden');
+                    var selector = "div:eq(" + x1*3 + ")";
+                    $("#mt1").find(selector).removeClass().addClass('hidden');
+                }
+                if (x1>3){
+                    var selector = "span:eq(" + x1 + ")";
+                    $("#d2").find(selector).removeClass().addClass('hidden');
+                    var selector = "br:eq(" + x1 + ")";
+                    $("#d2").find(selector).removeClass().addClass('hidden');
+                }
+                $("#lBar").css("height", "100px").css("background-size","430px 110px").css("top","5px");
+                $("#third").css("height", "100px")
+
+
+            }
         }
 
 
