@@ -172,10 +172,12 @@ function all() {
             var selector = "span:eq(" + x1 + ")";
             if (sbms2[9] == x1 + 1) {
                 $("#d2, #d3").find(selector).removeClass().addClass('mn1');
+            	min1=cv;
             }
 
             if (sbms2[8] == x1 + 1) {
                 $("#d2, #d3").find(selector).removeClass().addClass('mx1');
+            	max1=cv;
             }
 
             $("#d3").find(selector).html(cv.toFixed(3));
@@ -188,7 +190,7 @@ function all() {
             }
             else{
                 var min = 0;
-                var max = 1;1
+                var max = 1;
             }
 
             var hslValues = getBatteryHslColor(cv, min, max);
@@ -244,7 +246,7 @@ function all() {
         $('#infoBarValue4').html(intTemperature + '&#8451');
         $('#infoBarValue5').html(extTemperature + '&#8451');
         $('#infoBarValue6').html(bv.toFixed(3) + 'V');
-        $('#infoBarValue7').html(((max1 - min1) * 1000).toFixed(0) + 'mV');
+        $('#infoBarValue7').html(((max1 - min1) * 1000).toFixed(1) + 'mV');
 
         // Friggin .css('box-shadow') is not working, must use .attr()
         // $("#intTemperatureLed").css('box-shadow', getTemperatureHslColor(intTemperature, 0, 40));
