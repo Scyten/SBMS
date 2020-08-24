@@ -246,7 +246,7 @@ function all() {
         $('#infoBarValue4').html(intTemperature + '&#8451');
         $('#infoBarValue5').html(extTemperature + '&#8451');
         $('#infoBarValue6').html(bv.toFixed(3) + 'V');
-        $('#infoBarValue7').html(((max1 - min1) * 1000).toFixed(1) + 'mV');
+        $('#infoBarValue7').html(((max1 - min1) * 1000).toFixed(0) + 'mV');
 
         // Friggin .css('box-shadow') is not working, must use .attr()
         // $("#intTemperatureLed").css('box-shadow', getTemperatureHslColor(intTemperature, 0, 40));
