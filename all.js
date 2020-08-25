@@ -264,7 +264,7 @@ function all() {
                 cv = sv;
             }
 
-            if (x1 != 3) {
+            if (x1 != 3 && x1 !=2 && x1 !=1) {
                 var selector = "span:eq(" + domCounter + ")";
                 $("#d7").find(selector).html(n2 + cv.toFixed(3));
                 $("#d8").find(selector).html(n2 + (cv * bv).toFixed(1));
@@ -277,7 +277,7 @@ function all() {
 
         var intTemperature = ((dcmp(24, 2, sbms) / 10) - 45).toFixed(1);
         var extTemperature = ((dcmp(26, 2, sbms) / 10) - 45).toFixed(1);
-        $('#infoBarValue1').html(dcmp(7, 1, xsbms));
+        $('#infoBarValue1').html(dcmp(7, 1, xsbms)==1?"LiFePo":(dcmp(7, 1, xsbms)));
         $('#infoBarValue2').html(dcmp(8, 3, xsbms) + sbms1[8]);
         $('#infoBarValue3').html(dcmp(56, 3, sbms) + r);
         $('#infoBarValue4').html(intTemperature + '&#8451');

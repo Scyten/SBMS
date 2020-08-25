@@ -21,74 +21,83 @@
 </div>
 
 <div id="useless">
-    <div4 id='mo0'>PV1 & PV2</div4>
+    <!--<div4 id='mo0'>PV1 & PV2</div4>-
     <div4 id='mo2' style='left:240px;'>Battery</div4>
-    <div4 id='mo1' style='left:480px;'>Load</div4>
-    <div2 style='display: none;' id='id'></div2>
+    <div4 id='mo1' style='left:480px;'>Load</div4>-->
+    <!--<div2 style='display: none;' id='id'></div2>-->
 </div>
 
 <div id="container">
     <div id="leftPanel">
-        <div class="panel">
-            <span class="section-title">Info</span>
-            <div id="first">
-                <div class="infoBar">
-                    <span class="infoBarTitle">System type</span>
-                    <span id="infoBarValue1" class="infoBarValue"></span>
-                </div>
-                <div class="infoBar">
-                    <span class="infoBarTitle">Maximum capacity</span>
-                    <span id="infoBarValue2" class="infoBarValue"></span>
-                </div>
-                <div class="infoBar">
-                    <span class="infoBarTitle">System status</span>
-                    <span id="infoBarValue3" class="infoBarValue"></span>
-                </div>
-                <div class="infoBar">
-                    <span class="infoBarTitle">Interior temperature</span>
-                    <span id="infoBarValue4" class="infoBarValue"></span>
-                    <div id="intTemperatureLed" class="led temperature"></div>
-                </div>
-                <div class="infoBar">
-                    <span class="infoBarTitle">Exterior temperature</span>
-                    <span id="infoBarValue5" class="infoBarValue"></span>
-                    <div id="extTemperatureLed" class="led temperature"></div>
-                </div>
-                <div class="infoBar">
-                    <span class="infoBarTitle">Battery voltage</span>
-                    <span id="infoBarValue6" class="infoBarValue"></span>
-                </div>
-                <div class="infoBar">
-                    <span class="infoBarTitle">Cell &#916</span>
-                    <span id="infoBarValue7" class="infoBarValue"></span>
-                </div>
-            </div>
-        </div>
-        <div class="panel">
-            <span class="section-title">Status</span>
-            <div id="second">
-                <!--<meter id='bat' style='height: 40px; width: 220px; top: 9px;' min='0' low='20' max='100'></meter>-->
-                <div class="battery-container battery">
-                    <div class="meter-gloss"></div>
-                    <div id="battery" class="meter-fill"></div>
-                </div>
-                <meter style='height: 20px; left: 271px; top:23px; width: 5px;' min='2' max='8' value='0'></meter>
-                <div2 style='color:#000;font-size:200%;top:25px;left:115px;text-align: center; text-shadow: -1px -1px 4px #efc;'
-                      id='SOC'></div2>
+        <div id="topleft">
+            <div class="panel">
 
-                <div id="status-leds">
-                    <div id="led0">PV1 & PV2
-                        <div class="led led-yellow"></div>
+                <span class="section-title">Info</span>
+                <div id="first">
+                    <div class="infoBar">
+                        <span class="infoBarTitle">System type</span>
+                        <span id="infoBarValue1" class="infoBarValue"></span>
                     </div>
-                    <div id="led2">BATTERY
-                        <div class="led led-yellow"></div>
+                    <div class="infoBar">
+                        <span class="infoBarTitle">Maximum capacity</span>
+                        <span id="infoBarValue2" class="infoBarValue"></span>
                     </div>
-                    <div id="led1">LOAD
-                        <div class="led led-yellow"></div>
+                    <div class="infoBar">
+                        <span class="infoBarTitle">System status</span>
+                        <span id="infoBarValue3" class="infoBarValue"></span>
+                    </div>
+                    <div class="infoBar">
+                        <span class="infoBarTitle">Interior temperature</span>
+                        <span id="infoBarValue4" class="infoBarValue"></span>
+                        <div id="intTemperatureLed" class="led temperature"></div>
+                    </div>
+                    <div class="infoBar">
+                        <span class="infoBarTitle">Exterior temperature</span>
+                        <span id="infoBarValue5" class="infoBarValue"></span>
+                        <div id="extTemperatureLed" class="led temperature"></div>
+                    </div>
+                    <div class="infoBar">
+                        <span class="infoBarTitle">Battery voltage</span>
+                        <span id="infoBarValue6" class="infoBarValue"></span>
+                    </div>
+                    <div class="infoBar">
+                        <span class="infoBarTitle">Cell &#916</span>
+                        <span id="infoBarValue7" class="infoBarValue"></span>
+                    </div>
+                    <div class="infoBar">
+                        <span class="infoBarTitle">Model</span>
+                        <span id="id" class="infoBarValue"></span>
                     </div>
                 </div>
             </div>
         </div>
+        <div id="topright">
+            <div class="panel">
+                <span class="section-title">Status</span>
+                <div id="second">
+                    <!--<meter id='bat' style='height: 40px; width: 220px; top: 9px;' min='0' low='20' max='100'></meter>-->
+                    <div class="battery-container battery">
+                        <div class="meter-gloss"></div>
+                        <div id="battery" class="meter-fill"></div>
+                    </div>
+                    <meter style='height: 20px; left: 271px; top:23px; width: 5px;' min='2' max='8' value='0'></meter>
+                    <div2 style='color:#000;font-size:200%;top:25px;left:115px;text-align: center; text-shadow: -1px -1px 4px #efc;'
+                          id='SOC'></div2>
+
+                    <div id="status-leds">
+                        <div id="led0">PV1 <!--& PV2-->
+                            <div class="led led-yellow"></div>
+                        </div>
+                        <div id="led2">BATTERY
+                            <div class="led led-yellow"></div>
+                        </div>
+                        <div id="led1">LOAD
+                            <div class="led led-yellow"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         <div class="panel">
             <span class="section-title">Cells</span>
             <div id="third">
@@ -99,7 +108,7 @@
                 </div>
                 -->
                 <div class="largeBar" id="lBar">
-                    <div2 style='left:20px; color:#d00;' id='d2'>
+                    <div2 style='left:20px; color:#00a9da;' id='d2'>
                         <span>Cell 1</span>
                         <br><span>Cell 2</span>
                         <br><span>Cell 3</span>
@@ -166,9 +175,9 @@
                 </div>
             </div>
         </div>
-
+</div>
     </div>
-
+    
     <div id="rightPanel">
         <div id="date-time" class="simple-panel" style="height: 145px;">
             <time id="date"></time>
@@ -181,7 +190,7 @@
         <div id="details" class="simple-panel" style="height: 145px;">
             <div3>
                 <div2 style="color:#00a9da;top:22px;" id="d6">
-                    Batt<br>PV1<br>PV2<br>PV1+PV2<br>Load<br>ExtLd
+                    Batt<br>PV1<!--<br>PV2<br>PV1+PV2--><br>Load<br>ExtLd<br>Charged<br>
                 </div2>
                 <div2 id="d7">
                 	[A]
@@ -241,11 +250,11 @@
                 <div class="fan">
                     <img id="fan0-1" src="fan.png"/>
                 </div>
-                <div class="legend">
+                <!--<div class="legend">
                     <span class="laser laser-cyan"></span>
                     <br>PV2<br>
                     <span id="avg0-1"></span>
-                </div>
+                </div>-->
             </div>
             <div3>
                 <!--<div style='background: #fb9;width: 720px;height:25px;'></div>-->
@@ -347,11 +356,11 @@
     const DATA_INTERVAL_ERROR = 10000;
     const DATA_FETCH_TIMEOUT = 3000;
     const FAN_MAX_SPEED = 0.5;
-    const FAN_MIN_SPEED = 1.5;
+    const FAN_MIN_SPEED = 3;
     const FAN_DELTA = FAN_MIN_SPEED - FAN_MAX_SPEED;
-    const batteryPercentRange = {min: 40, max: 100};
-    const intTemperatureRange = {min: 10, max: 40};
-    const extTemperatureRange = {min: -45, max: 40};
+    const batteryPercentRange = {min: 10, max: 100};
+    const intTemperatureRange = {min: 5, max: 40};
+    const extTemperatureRange = {min: 5, max: 40};
 
     var counter = 1;
     var ledsStatus = [1, 1, 1];

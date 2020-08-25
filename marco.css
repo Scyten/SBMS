@@ -75,7 +75,7 @@ body {
 }
 
 #first {
-    height: 200px;
+    height: 268px;
 }
 
 #second {
@@ -291,11 +291,12 @@ div {
 }
 
 .infoBar {
-    width: 431px;
+    width: 380px;
     height: 29px;
     background-repeat: no-repeat;
     background-image: url("infobar-small.png");
     /*background-image: url("infobar.png");*/
+    background-size: 380px 29px;
     margin-bottom: 3px;
 }
 
@@ -560,4 +561,13 @@ div5 {
 
 .hidden {
     display: none;
+}
+#topleft{
+    float: left;
+    width: 415px;
+}
+    
+#topright{
+    margin-left: 430px;
+    width: 460px;
 }
