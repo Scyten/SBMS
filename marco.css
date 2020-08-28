@@ -186,12 +186,13 @@ body {
 }
 
 #date-time, #details {
-    display: inline-block;
+    display: block;
 }
 
 #date-time {
     width: 185px;
     color: #0f0;
+    float: left;
 }
 
 #date, #time {
@@ -212,6 +213,7 @@ body {
 
 #details {
     width: 600px;
+    margin-left: 230px
 }
 
 #details div2 {
