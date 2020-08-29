@@ -198,12 +198,12 @@ body {
 #date, #time {
     position: absolute;
     text-align: center;
-    width: 100%;
+    width: 185px;
 }
 
 #date {
     /*top:50px;*/
-    font-size: 125%;
+    font-size: 120%;
 }
 
 #time {
@@ -213,7 +213,7 @@ body {
 
 #details {
     width: 600px;
-    margin-left: 300px
+    margin-left: 230px
 }
 
 #details div2 {
@@ -283,7 +283,7 @@ div {
     margin-bottom: 10px;
     border-style: solid;
     border-width: 22px 22px 23px 23px;
-    width: 840px;
+    /*width: 840px;*/
     left: 10px;
     height: 125px;
     -moz-border-image: url(boundaries-simple.png) 22 22 23 23 repeat;
